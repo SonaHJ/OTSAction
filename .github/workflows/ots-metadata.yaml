@@ -16,5 +16,6 @@ jobs:
             teamspace: Initial Team Space
             project: A_P1
             branch: master
-            repository: https://github01.hclpnp.com/testingproducts/FT_SVT_TestAsset.git
-            filepath: IOS_Rajani_RPT_SVT/Google_Test.testsuite
+            repository: https://github01.hclpnp.com/testingproducts/PT_SVT_TestAsset.git
+            filepath: RITTestINT/Logical/calculator.wsc/Add.opr/AddTest.tsq
+            environment: civcez376
