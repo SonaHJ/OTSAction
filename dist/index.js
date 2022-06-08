@@ -15604,12 +15604,12 @@ async function getResults(serverStore, asset) {
       console.log("");
       console.log("Test Result = " + verdict);
       if (verdict == "ERROR" || verdict == "FAIL") {
-        asset.setVerdictSet(false);
+        asset.setVerdictSet("false");
         var message = parsedJSON.message;
         console.log("");
         console.log("Error Message = " + message);
       } else {
-        asset.setVerdictSet(true);
+        asset.setVerdictSet("true");
       }
       
       if (
