@@ -1,6 +1,31 @@
 name: OTS Action
 
 on: workflow_dispatch
+inputs:
+      server_url:
+        description: 'Server URL'
+        required: true
+      offline_token:
+        description: 'Offline Token'
+        required: true
+      team_space:
+        description: 'Team Space'
+        required: true
+      project:
+        description: 'Project'
+        required: true
+      branch:
+        description: 'Branch'
+        required: true
+      repository:
+        description: 'Repository'
+        required: true
+      file_path:
+        description: 'File Path'
+        required: true
+      environment:
+        description: 'Environment'
+        required: true
 
 jobs:
 
@@ -11,11 +36,11 @@ jobs:
          - name: Execute Test
            uses: SonaHJ/OTSAction@main
            with:
-            serverUrl: https://master-hcl.tp-k8s.nonprod.hclpnp.com/
-            offlineToken: eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwOWY4MTc4My03YmVmLTRmYzktYjMxMC0xNDFjYzE4NmNhNjYifQ.eyJpYXQiOjE2NTQ2ODE4MjYsImp0aSI6ImIxYTIwZTY3LTYxYWUtNGIwZS05ODdjLTliNWMxMjUyNjMyYyIsImlzcyI6Imh0dHBzOi8vbWFzdGVyLWhjbC50cC1rOHMubm9ucHJvZC5oY2xwbnAuY29tL2F1dGgvcmVhbG1zL3Rlc3RzZXJ2ZXIiLCJhdWQiOiJodHRwczovL21hc3Rlci1oY2wudHAtazhzLm5vbnByb2QuaGNscG5wLmNvbS9hdXRoL3JlYWxtcy90ZXN0c2VydmVyIiwic3ViIjoiMjE0ZjkwM2YtYTI1MS00N2QxLWFjYjctNmQ1ZGY5Mzc1Zjc4IiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InRlc3RzZXJ2ZXIiLCJzZXNzaW9uX3N0YXRlIjoiMmE4ZTViMjQtMDc0ZC00MmMxLTljMjktYjQ1MTY1ZTcwNjMzIiwic2NvcGUiOiJ0ZXN0c2VydmVyIGVtYWlsIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUifQ.dqNWEC6JAZqLb93kp3LU2KnjwxRCLkgVcyVXQ5yjDXY
-            teamspace: Initial Team Space
-            project: A_P1
-            branch: master
-            repository: https://github01.hclpnp.com/testingproducts/PT_SVT_TestAsset.git
-            filepath: RITTestINT/Logical/calculator.wsc/Add.opr/AddTest.tsq
-            environment: civcez376
+            serverUrl: '${{ github.event.inputs.server_url }}'
+            offlineToken: '${{ github.event.inputs.offline_token }}'
+            teamspace: '${{ github.event.inputs.team_space }}'
+            project: '${{ github.event.inputs.project }}'
+            branch: '${{ github.event.inputs.branch }}'
+            repository: '${{ github.event.inputs.repository }}'
+            filepath: '${{ github.event.inputs.file_path }}'
+            environment: '${{ github.event.inputs.environment }}'
