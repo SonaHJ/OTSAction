@@ -1,31 +1,32 @@
 name: OTS Action
 
-on: workflow_dispatch
-inputs:
-      server_url:
-        description: 'Server URL'
-        required: true
-      offline_token:
-        description: 'Offline Token'
-        required: true
-      team_space:
-        description: 'Team Space'
-        required: true
-      project:
-        description: 'Project'
-        required: true
-      branch:
-        description: 'Branch'
-        required: true
-      repository:
-        description: 'Repository'
-        required: true
-      file_path:
-        description: 'File Path'
-        required: true
-      environment:
-        description: 'Environment'
-        required: true
+on:
+    workflow_dispatch:
+        inputs:
+            server_url:
+                description: 'Server URL'
+                required: true
+            offline_token:
+                description: 'Offline Token'
+                required: true
+            team_space:
+                description: 'Team Space'
+                required: true
+            project:
+                description: 'Project'
+                required: true
+            branch:
+                description: 'Branch'
+                required: true
+            repository:
+                description: 'Repository'
+                required: true
+            file_path:
+                description: 'File Path'
+                required: true
+            environment:
+                description: 'Environment'
+                required: true
 
 jobs:
 
