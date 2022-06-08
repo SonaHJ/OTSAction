@@ -15489,7 +15489,7 @@ const main = async () => {
     }
 
      await getResults(serverStore, asset);
-     if(asset.getVerdictSet() == false)
+     if(asset.getVerdictSet == false)
      {
       core.setFailed("Execution failed, Test Execution Status:  " + asset.getExecStatus());
      }
