@@ -26,7 +26,7 @@ inputs:
     description: 'Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.'  
     required: false
   variables:
-    description: 'Optional, Test variables corresponding to the test..format is key1=value1;key2=value2'
+    description: 'Optional. Test variables corresponding to the test..format is key1=value1;key2=value2'
     required: false
   datasets:
     description: 'Optional Comma (,) delimited values of datasets for the job to run, For example. (source:replacement;source:replacement)'
