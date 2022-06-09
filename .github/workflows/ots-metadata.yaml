@@ -31,7 +31,7 @@ on:
 jobs:
 
     OTS-Action:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         name: Execute OTS Test
         steps:
          - name: Execute Test
