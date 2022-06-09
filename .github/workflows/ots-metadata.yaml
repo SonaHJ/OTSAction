@@ -31,7 +31,7 @@ on:
 jobs:
 
     OTS-Action:
-        runs-on: self-hosted
+        runs-on: windows-latest
         name: Execute OTS Test
         steps:
          - name: Execute Test
