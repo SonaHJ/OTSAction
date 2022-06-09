@@ -4,42 +4,6 @@ inputs:
   serverUrl:
     description: '_prop_action_server_name_ URL'
     required: true
-  offlineToken:
-    description: '_prop_action_server_name_ OfflineToken'
-    required: true
-  teamspace:
-    description: 'Team Space name of the project.'
-    required: true
-  project:
-    description: 'Project name of the test.'
-    required: true
-  branch:
-    description: 'Branch name corresponding to the test.'
-    required: true
-  repository:
-    description: 'Repository Link corresponding to the test.'
-    required: true
-  filepath:
-    description: 'Path of the test in HCL OneTest Server. It must include the file extension.'
-    required: true
-  environment:
-    description: 'Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.'  
-    required: false
-  variables:
-    description: 'Optional. Test variables corresponding to the test..format is key1=value1;key2=value2'
-    required: false
-  datasets:
-    description: 'Optional Comma (,) delimited values of datasets for the job to run, For example. (source:replacement;source:replacement)'
-    required: false
-  tags:
-    description: 'Optional Comma (,) delimited list of tags for the job to run.'
-    required: false
-  secretsCollection:
-    description: 'Secrets collection name for the job to run.'
-    required: false
-  startDate:
-    description: 'Optional, Start date for the job to run. For example yyyy/MM/dd/HH:mm'
-    required: false          
 runs:
   using: 'node16'
   main: 'dist/index.js'
