@@ -15153,268 +15153,216 @@ const Status = {
 };
 
 const serverStore = {
-    serverUrl     :'',
-    offlineToken  :'',
-    accessToken   :'',
+  serverUrl: '',
+  offlineToken: '',
+  accessToken: '',
 
-    set setServerUrl(serverUrl)
-    {
-      this.serverUrl = serverUrl;
-    },
-    get getServerUrl()
-    {
-      return this.serverUrl;
-    },
+  set setServerUrl(serverUrl) {
+    this.serverUrl = serverUrl;
+  },
+  get getServerUrl() {
+    return this.serverUrl;
+  },
 
-    set setOfflineToken(offlineToken)
-    {
-      this.offlineToken = offlineToken;
-    },
-    get getOfflineToken()
-    {
-      return this.offlineToken;
-    },
+  set setOfflineToken(offlineToken) {
+    this.offlineToken = offlineToken;
+  },
+  get getOfflineToken() {
+    return this.offlineToken;
+  },
 
-    set setAccessToken(accessToken)
-    {
-      this.accessToken = accessToken;
-    },
-    get getAccessToken()
-    {
-      return this.accessToken;
-    }
+  set setAccessToken(accessToken) {
+    this.accessToken = accessToken;
+  },
+  get getAccessToken() {
+    return this.accessToken;
+  }
 };
 const asset = {
-    teamspace         :'',
-    project           :'',
-    repository        :'',
-    branch            :'',
-    filepath          :'',
-    environment       :'',
-    variables         :'',
-    datasets          :'',
-    tags              :'',
-    secretsCollection :'',
-    startDate         :'',
-    projectId         :'',
-    teamspaceId       :'',
-    repoId            :'',
-    assetId           :'',
-    externalType      :'',
-    assetName         :'',
-    desktopProjectId  :'',
-    executionId       :'',
-    resultId          :'',
-    execStatus        :'',
-    verdictSet        :'',
-    secretId          :'',
-    
-    set setTeamspace(teamspace)
-    {
-      this.teamspace = teamspace;
-    },
-    get getTeamspace()
-    {
-      return this.teamspace;
-    },
+  teamspace: '',
+  project: '',
+  repository: '',
+  branch: '',
+  filepath: '',
+  environment: '',
+  variables: '',
+  datasets: '',
+  tags: '',
+  secretsCollection: '',
+  startDate: '',
+  projectId: '',
+  teamspaceId: '',
+  repoId: '',
+  assetId: '',
+  externalType: '',
+  assetName: '',
+  desktopProjectId: '',
+  executionId: '',
+  resultId: '',
+  execStatus: '',
+  verdictSet: '',
+  secretId: '',
 
-    set setProject(project)
-    {
-      this.project = project;
-    },
-    get getProject()
-    {
-      return this.project;
-    },
+  set setTeamspace(teamspace) {
+    this.teamspace = teamspace;
+  },
+  get getTeamspace() {
+    return this.teamspace;
+  },
 
-    set setRepository(repository)
-    {
-      this.repository = repository;
-    },
-    get getRepository()
-    {
-      return this.repository;
-    },
+  set setProject(project) {
+    this.project = project;
+  },
+  get getProject() {
+    return this.project;
+  },
 
-    set setBranch(branch)
-    {
-      this.branch = branch;
-    },
-    get getBranch()
-    {
-      return this.branch;
-    },
+  set setRepository(repository) {
+    this.repository = repository;
+  },
+  get getRepository() {
+    return this.repository;
+  },
 
-    set setFilepath(filepath)
-    {
-      this.filepath = filepath;
-    },
-    get getFilePath()
-    {
-      return this.filepath;
-    },
+  set setBranch(branch) {
+    this.branch = branch;
+  },
+  get getBranch() {
+    return this.branch;
+  },
 
-    set setEnvironment(environment)
-    {
-      this.environment = environment;
-    },
-    get getEnvironment()
-    {
-      return this.environment;
-    },
+  set setFilepath(filepath) {
+    this.filepath = filepath;
+  },
+  get getFilePath() {
+    return this.filepath;
+  },
 
-    set setProjectId(projectId)
-    {
-      this.projectId = projectId;
-    },
-    get getProjectId()
-    {
-      return this.projectId;
-    },
+  set setEnvironment(environment) {
+    this.environment = environment;
+  },
+  get getEnvironment() {
+    return this.environment;
+  },
 
-    set setTeamspaceId(teamspaceId)
-    {
-      this.teamspaceId = teamspaceId;
-    },
-    get getTeamSpaceId()
-    {
-      return this.teamspaceId;
-    },
+  set setProjectId(projectId) {
+    this.projectId = projectId;
+  },
+  get getProjectId() {
+    return this.projectId;
+  },
 
-    set setRepoId(repoId)
-    {
-      this.repoId = repoId;
-    },
-    get getRepoId()
-    {
-      return this.repoId;
-    },
+  set setTeamspaceId(teamspaceId) {
+    this.teamspaceId = teamspaceId;
+  },
+  get getTeamSpaceId() {
+    return this.teamspaceId;
+  },
 
-    set setAssetId(assetId)
-    {
-      this.assetId = assetId;
-    },
-    get getAssetId()
-    {
-      return this.assetId;
-    },
+  set setRepoId(repoId) {
+    this.repoId = repoId;
+  },
+  get getRepoId() {
+    return this.repoId;
+  },
 
-    set setExternalType(externalType)
-    {
-      this.externalType = externalType;
-    },
-    get getExternalType()
-    {
-      return this.externalType;
-    },
+  set setAssetId(assetId) {
+    this.assetId = assetId;
+  },
+  get getAssetId() {
+    return this.assetId;
+  },
 
-    set setAssetName(assetName)
-    {
-      this.assetName = assetName;
-    },
-    get getAssetName()
-    {
-      return this.assetName;
-    },
+  set setExternalType(externalType) {
+    this.externalType = externalType;
+  },
+  get getExternalType() {
+    return this.externalType;
+  },
 
-    set setDesktopProjectId(desktopProjectId)
-    {
-      this.desktopProjectId = desktopProjectId;
-    },
-    get getDesktopProjectId()
-    {
-      return this.desktopProjectId;
-    },
-    
-    set setExecutionId(executionId)
-    {
-      this.executionId = executionId;
-    },
-    get getExecutionId()
-    {
-      return this.executionId;
-    },
+  set setAssetName(assetName) {
+    this.assetName = assetName;
+  },
+  get getAssetName() {
+    return this.assetName;
+  },
 
-    set setResultId(resultId)
-    {
-      this.resultId = resultId;
-    },
-    get getResultId()
-    {
-      return this.resultId;
-    },
+  set setDesktopProjectId(desktopProjectId) {
+    this.desktopProjectId = desktopProjectId;
+  },
+  get getDesktopProjectId() {
+    return this.desktopProjectId;
+  },
 
-    set setExecStatus(execStatus)
-    {
-      this.execStatus = execStatus;
-    },
-    get getExecStatus()
-    {
-      return this.execStatus;
-    },
+  set setExecutionId(executionId) {
+    this.executionId = executionId;
+  },
+  get getExecutionId() {
+    return this.executionId;
+  },
 
-    set setVerdictSet(verdictSet)
-    {
-      this.verdictSet = verdictSet;
-    },
-    get getVerdictSet()
-    {
-      return this.verdictSet;
-    },
+  set setResultId(resultId) {
+    this.resultId = resultId;
+  },
+  get getResultId() {
+    return this.resultId;
+  },
 
-    set setSecretId(secretId)
-    {
-      this.secretId = secretId;
-    },
-    get getSecretId()
-    {
-      return this.secretId;
-    },
+  set setExecStatus(execStatus) {
+    this.execStatus = execStatus;
+  },
+  get getExecStatus() {
+    return this.execStatus;
+  },
 
-    set setVariables(variables)
-    {
-      this.variables = variables;
-    },
-    get getVariables()
-    {
-      return this.variables;
-    },
+  set setVerdictSet(verdictSet) {
+    this.verdictSet = verdictSet;
+  },
+  get getVerdictSet() {
+    return this.verdictSet;
+  },
 
-    set setDatasets(datasets)
-    {
-      this.datasets = datasets;
-    },
-    get getDatasets()
-    {
-      return this.datasets;
-    },
+  set setSecretId(secretId) {
+    this.secretId = secretId;
+  },
+  get getSecretId() {
+    return this.secretId;
+  },
 
-    set setTags(tags)
-    {
-      this.tags = tags;
-    },
-    get getTags()
-    {
-      return this.tags;
-    },
+  set setVariables(variables) {
+    this.variables = variables;
+  },
+  get getVariables() {
+    return this.variables;
+  },
 
-    set setSecretsCollection(secretsCollection)
-    {
-      this.secretsCollection = secretsCollection;
-    },
-    get getSecretsCollection()
-    {
-      return this.secretsCollection;
-    },
+  set setDatasets(datasets) {
+    this.datasets = datasets;
+  },
+  get getDatasets() {
+    return this.datasets;
+  },
 
-    set setStartDate(startDate)
-    {
-      this.startDate = startDate;
-    },
-    get getStartDate()
-    {
-      return this.startDate;
-    }
+  set setTags(tags) {
+    this.tags = tags;
+  },
+  get getTags() {
+    return this.tags;
+  },
+
+  set setSecretsCollection(secretsCollection) {
+    this.secretsCollection = secretsCollection;
+  },
+  get getSecretsCollection() {
+    return this.secretsCollection;
+  },
+
+  set setStartDate(startDate) {
+    this.startDate = startDate;
+  },
+  get getStartDate() {
+    return this.startDate;
+  }
 };
 
 
@@ -15425,31 +15373,31 @@ const main = async () => {
      * We need to fetch all the inputs that were provided to our action
      * and store them in variables for us to use.
      **/
-    const serverUrl         = core.getInput('serverUrl',{required: true});
+    const serverUrl = core.getInput('serverUrl', { required: true });
     serverStore.setServerUrl = serverUrl;
-    const offlineToken      = core.getInput('offlineToken',{required: true});
+    const offlineToken = core.getInput('offlineToken', { required: true });
     serverStore.setOfflineToken = offlineToken;
-    const teamspace         = core.getInput('teamspace',{required: true});
+    const teamspace = core.getInput('teamspace', { required: true });
     asset.setTeamspace = teamspace;
-    const project           = core.getInput('project',{required: true});
+    const project = core.getInput('project', { required: true });
     asset.setProject = project;
-    const branch            = core.getInput('branch',{required: true});
+    const branch = core.getInput('branch', { required: true });
     asset.setBranch = branch;
-    const repository        = core.getInput('repository',{required: true});
+    const repository = core.getInput('repository', { required: true });
     asset.setRepository = repository;
-    const filepath          = core.getInput('filepath',{required: true});
+    const filepath = core.getInput('filepath', { required: true });
     asset.setFilepath = filepath;
-    const environment          = core.getInput('environment',{required: true});
+    const environment = core.getInput('environment', { required: false });
     asset.setEnvironment = environment;
-    const variables         = core.getInput('variables',{required: false});
+    const variables = core.getInput('variables', { required: false });
     asset.setVariables = variables;
-    const datasets          = core.getInput('datasets',{required: false});
+    const datasets = core.getInput('datasets', { required: false });
     asset.setDatasets = datasets;
-    const tags              = core.getInput('tags',{required: false});
+    const tags = core.getInput('tags', { required: false });
     asset.setTags = tags;
-    const secretsCollection = core.getInput('secretsCollection',{required: false});
+    const secretsCollection = core.getInput('secretsCollection', { required: false });
     asset.setSecretsCollection = secretsCollection;
-    const startDate         = core.getInput('startDate',{required: false});
+    const startDate = core.getInput('startDate', { required: false });
     asset.setStartDate = startDate;
 
     await serverSSLCheck(serverStore);
@@ -15465,11 +15413,10 @@ const main = async () => {
     await AssetIdGenByName(serverStore, asset);
 
     if (
-        asset.getExternalType == "APISUITE" ||
-        asset.getExternalType == "APITEST" ||
-        asset.getExternalType == "APISTUB"
-      ) 
-    {
+      asset.getExternalType == "APISUITE" ||
+      asset.getExternalType == "APITEST" ||
+      asset.getExternalType == "APISTUB"
+    ) {
       await validateEnvironment(serverStore, asset);
     }
     await startJobExecution(serverStore, asset);
@@ -15482,20 +15429,18 @@ const main = async () => {
       asset.getExecStatus != Status.INCOMPLETE ||
       asset.getExecStatus != Status.CANCELED ||
       asset.getExecStatus != Status.LAUNCH_FAILED
-    )
-    {
+    ) {
 
       await pollJobStatus(serverStore, asset);
     }
 
-     await getResults(serverStore, asset);
-     if(asset.getVerdictSet == false)
-     {
+    await getResults(serverStore, asset);
+    if (asset.getVerdictSet == false) {
       core.setFailed("Execution failed, Test Execution Status:  " + asset.getExecStatus);
-     }
+    }
 
   } catch (error) {
-    console.log("Execution failed with error "+error.message);
+    console.log("Execution failed with error " + error.message);
     core.setFailed(error.message);
   }
 }
@@ -15506,7 +15451,7 @@ async function validateEnvironment(serverStore, asset) {
       "Test Environment is mandatory to run API test. Please input the value in the API Test Environment field in the task."
     );
   }
-  
+
   var encodedBranchName = urlencode(asset.getBranch);
 
   var envListURL =
@@ -15530,11 +15475,11 @@ async function validateEnvironment(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of environments list. " +
-            envListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          envListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -15552,8 +15497,8 @@ async function validateEnvironment(serverStore, asset) {
         if (gotEnv == false) {
           throw new Error(
             "The test environment " +
-              asset.getEnvironment +
-              " is not valid for the test. Please check the API Test Environment field in the task."
+            asset.getEnvironment +
+            " is not valid for the test. Please check the API Test Environment field in the task."
           );
         }
       } else {
@@ -15565,16 +15510,16 @@ async function validateEnvironment(serverStore, asset) {
     .catch((error) => {
       throw new Error(
         "Error when accessing environments list URL - " +
-          envListURL +
-          ". Error: " +
-          error
+        envListURL +
+        ". Error: " +
+        error
       );
     });
 }
 
 async function getResults(serverStore, asset) {
   var resultsURL =
-  serverStore.getServerUrl +
+    serverStore.getServerUrl +
     "rest/projects/" +
     asset.getProjectId +
     "/results/" +
@@ -15592,11 +15537,11 @@ async function getResults(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of results. " +
-            resultsURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          resultsURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -15611,7 +15556,7 @@ async function getResults(serverStore, asset) {
       } else {
         asset.setVerdictSet = true;
       }
-      
+
       if (
         asset.getExecStatus != 'CANCELED' &&
         asset.getExecStatus != 'LAUNCH_FAILED'
@@ -15625,8 +15570,8 @@ async function getResults(serverStore, asset) {
             let reporthref = parsedJSON.reports[i].href;
             console.log(
               reportName +
-                " : " +
-                url.resolve(serverStore.getServerUrl, reporthref)
+              " : " +
+              url.resolve(serverStore.getServerUrl, reporthref)
             );
           }
         } else {
@@ -15645,7 +15590,7 @@ async function getResults(serverStore, asset) {
 
 async function getJobStatus(serverStore, asset) {
   var jobStatusURL =
-  serverStore.getServerUrl +
+    serverStore.getServerUrl +
     "rest/projects/" +
     asset.getProjectId +
     "/executions/" +
@@ -15664,16 +15609,16 @@ async function getJobStatus(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of test execution status. " +
-            jobStatusURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          jobStatusURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
       status = parsedJSON.status;
-      
+
       if (asset.getExecStatus != status) {
         asset.setExecStatus = status;
         console.log(
@@ -15684,9 +15629,9 @@ async function getJobStatus(serverStore, asset) {
     .catch((error) => {
       throw new Error(
         "Error when accessing test execution status URL - " +
-          jobStatusURL +
-          ". Error: " +
-          error
+        jobStatusURL +
+        ". Error: " +
+        error
       );
     });
 }
@@ -15696,7 +15641,7 @@ async function pollJobStatus(serverStore, asset) {
     var timerId = setInterval(async function () {
       try {
         await getJobStatus(serverStore, asset);
-	      
+
         if (
           asset.getExecStatus == Status.COMPLETE ||
           asset.getExecStatus == Status.COMPLETE_WITH_ERROR ||
@@ -15705,7 +15650,7 @@ async function pollJobStatus(serverStore, asset) {
           asset.getExecStatus == Status.INCOMPLETE ||
           asset.getExecStatus == Status.CANCELED ||
           asset.getExecStatus == Status.LAUNCH_FAILED
-        ){
+        ) {
           // stop polling on end state
           clearInterval(timerId);
           resolve(true);
@@ -15723,7 +15668,7 @@ async function pollJobStatus(serverStore, asset) {
 
 async function startJobExecution(serverStore, asset) {
   let jobExecURL =
-  serverStore.getServerUrl +
+    serverStore.getServerUrl +
     "rest/projects/" +
     asset.getProjectId +
     "/executions/";
@@ -15737,18 +15682,17 @@ async function startJobExecution(serverStore, asset) {
 
   if (
     asset.getExternalType == "APISUITE" ||
-    asset.getExternalType == "APITEST" || 
-	  asset.getExternalType == "APISTUB"
-    ) 
-  {
+    asset.getExternalType == "APITEST" ||
+    asset.getExternalType == "APISTUB"
+  ) {
     AssetParameters["environment"] = asset.getEnvironment;
   }
 
   if (asset.getVariables) {
     var str_array = asset.getVariables.split(';');
     var varObj = {};
-	  var keyval;
-	  var key;
+    var keyval;
+    var key;
     for (var i = 0; i < str_array.length; i++) {
       keyval = str_array[i].split('=');
       key = keyval[0];
@@ -15757,50 +15701,45 @@ async function startJobExecution(serverStore, asset) {
     AssetParameters["variables"] = varObj;
   }
 
-  if(asset.getStartDate)
-  {
+  if (asset.getStartDate) {
     const event = new Date(asset.getStartDate);
-    var at = {at:event.toISOString()};
+    var at = { at: event.toISOString() };
     AssetParameters["scheduled"] = at;
   }
 
-  if(asset.getDatasets)
-  {
+  if (asset.getDatasets) {
     var dataSources = [];
     var sources;
     var str_array = asset.getDatasets.split(';');
-    for (var i = 0; i < str_array.length; i++)
-    {
+    for (var i = 0; i < str_array.length; i++) {
       var datasetArray = str_array[i].split(':');
-      await getSrcDataSetId(serverStore,asset,datasetArray[0]);
-      await getReplaceDataSetId(serverStore,asset,datasetSrcId,datasetArray[1]);
+      await getSrcDataSetId(serverStore, asset, datasetArray[0]);
+      await getReplaceDataSetId(serverStore, asset, datasetSrcId, datasetArray[1]);
       sources = {
-      "source": {
-        "assetId": datasetSrcId
-      },
-      "replacement": {
-        "datasetId": datasetReplaceId
+        "source": {
+          "assetId": datasetSrcId
+        },
+        "replacement": {
+          "datasetId": datasetReplaceId
+        }
       }
+      dataSources.push(sources);
     }
-	  dataSources.push(sources);
-    }
-    
-    
+
+
     AssetParameters["dataSources"] = dataSources;
   }
 
-  if(asset.getTags)
-  {
-   var tag = asset.getTags.split(',');
-   AssetParameters["tags"] = tag;    
+  if (asset.getTags) {
+    var tag = asset.getTags.split(',');
+    AssetParameters["tags"] = tag;
   }
 
-  if(asset.getSecretsCollection)
-  {
-   await getSecretCollectionId(serverStore,asset);
-   AssetParameters["secretsCollection"] = asset.getSecretId;    
+  if (asset.getSecretsCollection) {
+    await getSecretCollectionId(serverStore, asset);
+    AssetParameters["secretsCollection"] = asset.getSecretId;
   }
- 
+
   await accessTokenGen(serverStore);
 
   var headers = {
@@ -15809,18 +15748,18 @@ async function startJobExecution(serverStore, asset) {
     Authorization: "Bearer " + serverStore.getAccessToken,
   };
   var body = JSON.stringify(AssetParameters);
-  console.log("request body = "+body);
+  console.log("request body = " + body);
   return axios
     .post(jobExecURL, body, { headers: headers })
     .then((response) => {
       if (response.status != 201) {
         throw new Error(
           "Error during launch of test. " +
-            jobExecURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          jobExecURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -15835,15 +15774,15 @@ async function startJobExecution(serverStore, asset) {
     .catch((error) => {
       throw new Error(
         "Error when accessing test execution URL - " +
-          jobExecURL +
-          ". Error: " +
-          error
+        jobExecURL +
+        ". Error: " +
+        error
       );
     });
 }
 
-async function AssetIdGenByName(serverStore,asset) {
-  var assetName =  path.parse(asset.getFilePath).name;
+async function AssetIdGenByName(serverStore, asset) {
+  var assetName = path.parse(asset.getFilePath).name;
   var encodedAssetName = urlencode(asset.getAssetName);
   var encodedBranchName = urlencode(asset.getBranch);
   var testsListURL =
@@ -15868,11 +15807,11 @@ async function AssetIdGenByName(serverStore,asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of testassets. " +
-            testsListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          testsListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -15898,36 +15837,36 @@ async function AssetIdGenByName(serverStore,asset) {
         if (!gotId) {
           throw new Error(
             "The file path " +
-              asset.getFilePath +
-              " was not found in the branch " +
-              asset.getBranch +
-              " corresponding to the repository " +
-              asset.getRepository +
-              " in the project " +
-              asset.getProject +
-              ". Please check the File path field in the task."
+            asset.getFilePath +
+            " was not found in the branch " +
+            asset.getBranch +
+            " corresponding to the repository " +
+            asset.getRepository +
+            " in the project " +
+            asset.getProject +
+            ". Please check the File path field in the task."
           );
         }
       } else {
         throw new Error(
-              "The file path " +
-              asset.getFilePath +
-              " was not found in the branch " +
-              asset.getBranch +
-              " corresponding to the repository " +
-              asset.getRepository +
-              " in the project " +
-              asset.getProject +
-              ". Please check the File path field in the task."
+          "The file path " +
+          asset.getFilePath +
+          " was not found in the branch " +
+          asset.getBranch +
+          " corresponding to the repository " +
+          asset.getRepository +
+          " in the project " +
+          asset.getProject +
+          ". Please check the File path field in the task."
         );
       }
     })
     .catch((error) => {
       throw new Error(
         "Error when accessing testassets API - " +
-          testsListURL +
-          ". Error: " +
-          error
+        testsListURL +
+        ". Error: " +
+        error
       );
     });
 }
@@ -15936,7 +15875,7 @@ async function AssetIdGenByName(serverStore,asset) {
 
 async function branchValidation(serverStore, asset) {
   let branchListURL =
-  serverStore.getServerUrl +
+    serverStore.getServerUrl +
     "rest/projects/" +
     asset.getProjectId +
     "/branches/";
@@ -15950,15 +15889,15 @@ async function branchValidation(serverStore, asset) {
   return axios
     .get(branchListURL, { headers: headers })
     .then((response) => {
-      
+
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of branches. " +
-            branchListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          branchListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -15977,27 +15916,27 @@ async function branchValidation(serverStore, asset) {
           throw new Error(
             "The branch " +
             asset.getBranch +
-              " was not found in the project " +
-              asset.getProject +
-              ". Please check the Branch field in the task."
+            " was not found in the project " +
+            asset.getProject +
+            ". Please check the Branch field in the task."
           );
         }
       } else {
         throw new Error(
           "The branch " +
           asset.getBranch +
-            " was not found in the project " +
-            asset.getProject +
-            ". Please check the Branch field in the task."
+          " was not found in the project " +
+          asset.getProject +
+          ". Please check the Branch field in the task."
         );
       }
     })
     .catch((error) => {
-     throw new Error(
+      throw new Error(
         "Error when accessing branch list API - " +
-          branchListURL +
-          ". Error: " +
-          error
+        branchListURL +
+        ". Error: " +
+        error
       );
     });
 }
@@ -16024,11 +15963,11 @@ async function repoIdGenByName(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of repositories. " +
-            reposListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          reposListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16048,27 +15987,27 @@ async function repoIdGenByName(serverStore, asset) {
           throw new Error(
             "The repository " +
             asset.getRepository +
-              " was not found in the project " +
-              asset.getProject +
-              " Please check the Repository field in the task."
+            " was not found in the project " +
+            asset.getProject +
+            " Please check the Repository field in the task."
           );
         }
       } else {
         throw new Error(
           "The repository " +
           asset.getRepository +
-            " was not found in the project " +
-            asset.getProject +
-            " Please check the Repository field in the task."
+          " was not found in the project " +
+          asset.getProject +
+          " Please check the Repository field in the task."
         );
       }
     })
     .catch((error) => {
       throw new Error(
         "Error when accessing repository list API - " +
-          reposListURL +
-          ". Error: " +
-          error
+        reposListURL +
+        ". Error: " +
+        error
       );
     });
 }
@@ -16092,11 +16031,11 @@ async function projectIdGenByName(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of projects. " +
-            projectsListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          projectsListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16115,28 +16054,28 @@ async function projectIdGenByName(serverStore, asset) {
         if (!gotId) {
           throw new Error(
             "You do not have access to the project " +
-              asset.getProject +
-              " or the project was not found in the teamspace " +
-              asset.getTeamspace +
-              " in the server. Please check the Project field in the task."
+            asset.getProject +
+            " or the project was not found in the teamspace " +
+            asset.getTeamspace +
+            " in the server. Please check the Project field in the task."
           );
         }
       } else {
         throw new Error(
           "You do not have access to the project " +
           asset.getProject +
-            " or the project was not found in the teamspace " +
-            asset.getTeamspace +
-            " in the server. Please check the Project field in the task."
+          " or the project was not found in the teamspace " +
+          asset.getTeamspace +
+          " in the server. Please check the Project field in the task."
         );
       }
     })
     .catch((error) => {
       throw new Error(
         "Error when accessing projects list API - " +
-          projectsListURL +
-          ". Error: " +
-          error
+        projectsListURL +
+        ". Error: " +
+        error
       );
     });
 }
@@ -16156,22 +16095,22 @@ function serverSSLCheck(serverStore) {
         throw new Error(
           "Could not establish secure connection to the server " +
           serverStore.getServerUrl +
-            ". Please validate the SSL certificate of the server or import the CA certificate of the server to your trust store. Error: " +
-            error.message
+          ". Please validate the SSL certificate of the server or import the CA certificate of the server to your trust store. Error: " +
+          error.message
         );
       } else if (error.code == "CERT_HAS_EXPIRED") {
         throw new Error(
           "Could not establish secure connection to the server " +
           serverStore.getServerUrl +
-            ". The server presented an expired SSL certificate. Error: " +
-            error.message
+          ". The server presented an expired SSL certificate. Error: " +
+          error.message
         );
       } else {
         throw new Error(
           "Could not establish secure connection to the server " +
           serverStore.getServerUrl +
-            ". Error: " +
-            error.message
+          ". Error: " +
+          error.message
         );
       }
     });
@@ -16196,19 +16135,19 @@ function accessTokenGen(serverStore) {
       ) {
         throw new Error(
           "Error during retrieval of access token. Please check the offline token in the service connection. Request returned response code: " +
-            response.status
+          response.status
         );
       }
       if (response.status == 403) {
         throw new Error(
           "Error during retrieval of access token. Please check the license as request is unauthorized. Request returned response code: " +
-            response.status
+          response.status
         );
       }
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of access token. Request returned response code: " +
-            response.status
+          response.status
         );
       }
       serverStore.setAccessToken = response.data.access_token;
@@ -16222,24 +16161,24 @@ function accessTokenGen(serverStore) {
       } else if (error.code == "UNABLE_TO_VERIFY_LEAF_SIGNATURE") {
         throw new Error(
           "Could not establish secure connection to the server " +
-            serverStore.getServerUrl +
-            ". Please validate the SSL certificate of the server or import the CA certificate of the server to your trust store. Error: " +
-            error.message
+          serverStore.getServerUrl +
+          ". Please validate the SSL certificate of the server or import the CA certificate of the server to your trust store. Error: " +
+          error.message
         );
       } else if (error.code == "CERT_HAS_EXPIRED") {
         throw new Error(
           "Could not establish secure connection to the server " +
           serverStore.getServerUrl +
           +
-            ". The server presented an expired SSL certificate. Error: " +
-            error.message
+          ". The server presented an expired SSL certificate. Error: " +
+          error.message
         );
       } else {
         throw new Error(
           "Error when accessing Token management URL: " +
-            tokenURL +
-            " Error: " +
-            error
+          tokenURL +
+          " Error: " +
+          error
         );
       }
     });
@@ -16254,7 +16193,7 @@ async function teamspaceIdGenByName(serverStore, asset) {
     "&member=true";
 
   await accessTokenGen(serverStore);
-  
+
   var headers = {
     "Accept-Language": "en",
     Authorization: "Bearer " + serverStore.getAccessToken,
@@ -16265,11 +16204,11 @@ async function teamspaceIdGenByName(serverStore, asset) {
       if (response.status != 200) {
         throw new Error(
           "Error during retrieval of teamspaces. " +
-            teamspacesListURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          teamspacesListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16288,8 +16227,8 @@ async function teamspaceIdGenByName(serverStore, asset) {
         if (!gotId) {
           throw new Error(
             "You do not have access to the team space " +
-              asset.getTeamspace +
-              " or the team space was not found in the server. Please check the Team Space field in the task."
+            asset.getTeamspace +
+            " or the team space was not found in the server. Please check the Team Space field in the task."
           );
         }
       } else {
@@ -16297,22 +16236,22 @@ async function teamspaceIdGenByName(serverStore, asset) {
           "You do not have access to the team space " +
           asset.getTeamspace +
           +
-            " or the team space was not found in the server. Please check the Team Space field in the task."
+          " or the team space was not found in the server. Please check the Team Space field in the task."
         );
       }
     })
     .catch((error) => {
       throw new Error(
         "Error when accessing teamspaces list API - " +
-          teamspacesListURL +
-          ". Error: " +
-          error
+        teamspacesListURL +
+        ". Error: " +
+        error
       );
     });
-} 
+}
 
 async function getSrcDataSetId(serverStore, asset, srcDataSet) {
-  let datasetURL = serverStore.getServerUrl+"rest/projects/"+asset.getProjectId+"/assets/"+asset.getAssetId+"/"+asset.getBranch+"/dependencies/?assetTypes=dataset";
+  let datasetURL = serverStore.getServerUrl + "rest/projects/" + asset.getProjectId + "/assets/" + asset.getAssetId + "/" + asset.getBranch + "/dependencies/?assetTypes=dataset";
   await accessTokenGen(serverStore);
 
   var headers = {
@@ -16326,10 +16265,10 @@ async function getSrcDataSetId(serverStore, asset, srcDataSet) {
         throw new Error(
           "Error during retrieval of Source data set ID. " +
           datasetURL +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16338,7 +16277,7 @@ async function getSrcDataSetId(serverStore, asset, srcDataSet) {
       var gotId = false;
       if (total > 0) {
         for (var i = 0; i < total; i++) {
-          
+
           retrievedDatasetName = parsedJSON.content[i].path;
           if (srcDataSet == retrievedDatasetName) {
             datasetSrcId = parsedJSON.content[i].id;
@@ -16348,7 +16287,7 @@ async function getSrcDataSetId(serverStore, asset, srcDataSet) {
         }
         if (!gotId) {
           throw new Error(
-           "No Dataset configured for the Asset"
+            "No Dataset configured for the Asset"
           );
         }
       } else {
@@ -16361,14 +16300,14 @@ async function getSrcDataSetId(serverStore, asset, srcDataSet) {
       throw new Error(
         "Error when accessing DataSet API - " +
         datasetURL +
-          ". Error: " +
-          error
+        ". Error: " +
+        error
       );
     });
 }
 
 async function getReplaceDataSetId(serverStore, asset, srcDataSetId, repDataset) {
-  let repDataUrl = serverStore.getServerUrl+"rest/projects/"+asset.getProjectId+"/datasets/?branch="+asset.getBranch+"&assetId="+srcDataSetId+"&findSwaps=true";
+  let repDataUrl = serverStore.getServerUrl + "rest/projects/" + asset.getProjectId + "/datasets/?branch=" + asset.getBranch + "&assetId=" + srcDataSetId + "&findSwaps=true";
   await accessTokenGen(serverStore);
 
   var headers = {
@@ -16382,10 +16321,10 @@ async function getReplaceDataSetId(serverStore, asset, srcDataSetId, repDataset)
         throw new Error(
           "Error during retrieval of Source data set ID. " +
           repDataUrl +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16403,7 +16342,7 @@ async function getReplaceDataSetId(serverStore, asset, srcDataSetId, repDataset)
         }
         if (!gotId) {
           throw new Error(
-           "No Swap configured for the DataSets"
+            "No Swap configured for the DataSets"
           );
         }
       } else {
@@ -16416,15 +16355,15 @@ async function getReplaceDataSetId(serverStore, asset, srcDataSetId, repDataset)
       throw new Error(
         "Error when accessing DataSet Swap API - " +
         repDataUrl +
-          ". Error: " +
-          error
+        ". Error: " +
+        error
       );
     });
 }
 
 async function getSecretCollectionId(serverStore, asset) {
-  
-  let secretUrl = serverStore.getServerUrl+"rest/projects/"+asset.getProjectId+"/secrets/?type=ENVIRONMENT";
+
+  let secretUrl = serverStore.getServerUrl + "rest/projects/" + asset.getProjectId + "/secrets/?type=ENVIRONMENT";
   await accessTokenGen(serverStore);
 
   var headers = {
@@ -16438,10 +16377,10 @@ async function getSecretCollectionId(serverStore, asset) {
         throw new Error(
           "Error during retrieval of Secret Collection ID. " +
           secretUrl +
-            " returned " +
-            response.status +
-            " response code. Response: " +
-            response.data
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
         );
       }
       var parsedJSON = response.data;
@@ -16454,14 +16393,14 @@ async function getSecretCollectionId(serverStore, asset) {
           retsecretCollectionName = respData.name;
           if (asset.getSecretsCollection == retsecretCollectionName) {
             secretsCollectionId = respData.id;
-            
+
             gotId = true;
             return true;
           }
         }
         if (!gotId) {
           throw new Error(
-           "Secret collection does not available on server."
+            "Secret collection does not available on server."
           );
         }
       } else {
@@ -16474,8 +16413,8 @@ async function getSecretCollectionId(serverStore, asset) {
       throw new Error(
         "Error when accessing Secret Collection API - " +
         secretUrl +
-          ". Error: " +
-          error
+        ". Error: " +
+        error
       );
     });
 }
