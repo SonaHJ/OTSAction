@@ -45,3 +45,11 @@ jobs:
             repository: '${{ github.event.inputs.repository }}'
             filepath: '${{ github.event.inputs.file_path }}'
             environment: '${{ github.event.inputs.environment }}'
+    Test-Action:
+        runs-on: ubuntu-latest
+        name: OTS Test
+        steps:
+         - name: Execute Test2
+           uses: SonaHJ/OTSAction@main
+           with:
+            serverUrl: '${{ github.event.inputs.server_url }}'
