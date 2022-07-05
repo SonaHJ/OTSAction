@@ -10,7 +10,7 @@ on:
                 description: 'Offline Token'
                 required: true
             team_space:
-                description: 'Team Space'
+                description: 'Team Space Name'
                 required: true
             project:
                 description: 'Project'
@@ -19,14 +19,20 @@ on:
                 description: 'Branch'
                 required: true
             repository:
-                description: 'Repository'
+                description: 'Repository Link'
                 required: true
             file_path:
                 description: 'File Path'
                 required: true
             environment:
-                description: 'Environment'
-                required: true
+                description: 'API Test Environment'
+                required: false
+            datasets:
+                description: 'Datasets'
+                required: false
+            multipleValues:
+                description: 'Multiple Values'
+                required: false
 
 jobs:
 
@@ -45,11 +51,5 @@ jobs:
             repository: '${{ github.event.inputs.repository }}'
             filepath: '${{ github.event.inputs.file_path }}'
             environment: '${{ github.event.inputs.environment }}'
-    Test-Action:
-        runs-on: ubuntu-latest
-        name: OTS Test
-        steps:
-         - name: Execute Test2
-           uses: SonaHJ/OTSAction@main
-           with:
-            serverUrl: '${{ github.event.inputs.server_url }}'
+            datasets: '${{ github.event.inputs.datasets }}'
+            multipleValues: '${{ github.event.inputs.multipleValues }}'
