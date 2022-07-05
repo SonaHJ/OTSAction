@@ -8640,11 +8640,11 @@ const main = async () => {
                 );
             }
             if(value[0] == 'variables') {
-                asset.setVariables = variables;
+                asset.setVariables = value[1];
             } else if(value[0] == 'tags') {
-                asset.setTags = tags;
+                asset.setTags = value[1];
             } else if(value[0] == 'secretsCollection') {
-                asset.setSecretsCollection = secretsCollection;
+                asset.setSecretsCollection = value[1];
             }
         }
 
