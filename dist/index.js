@@ -8636,8 +8636,6 @@ const main = async () => {
 
         await branchValidation(serverStore, asset);
 
-        await AssetIdGenByName(serverStore, asset);
-
         if (
             asset.getExternalType == "APISUITE" ||
             asset.getExternalType == "APITEST" ||
