@@ -308,8 +308,8 @@ const main = async () => {
     }
 }
 
-function isEmptyOrSpaces(dataset) {
-    return dataset === null || dataset.match(/^ *$/) !== null;
+function isEmptyOrSpaces(input) {
+     return !input || !input.trim();
 }
 async function validateEnvironment(serverStore, asset) {
     if (asset.getEnvironment == "" || asset.getEnvironment == null || asset.getEnvironment == undefined) {
