@@ -234,9 +234,12 @@ const main = async () => {
         const datasets = core.getInput('datasets', { required: false });
         asset.setDatasets = datasets;
         const multipleValues = core.getInput('multipleValues', { required: false });
-        var mult_value = multipleValues.split('|');
+        
 	console.log("Multiple valie " +mult_value);
-        for (var i = 0; i < mult_value.length; i++) {
+        if(!isEmptyOrSpaces(multipleValues)) {
+			console.log("Nullcheck valie " +isEmptyOrSpaces(multipleValues));
+			var mult_value = multipleValues.split('|');
+            for (var i = 0; i < mult_value.length; i++) {
                 var value = new Array(); 
                 value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
                 value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
@@ -261,6 +264,7 @@ const main = async () => {
                     asset.setSecretsCollection = value[1];
                 }
             }
+        }
 
         await serverSSLCheck(serverStore);
 
