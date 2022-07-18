@@ -33,8 +33,7 @@ jobs:
             teamspace: Initial Team Space
             project: A_P1
             branch: master
-            repository: {repourl}
-            filepath: {test_filepath}
+            assetId: {assetIdOfTestFile}
             environment:
 ```
 7. Replace the example input values with your details.
@@ -69,13 +68,9 @@ URL of the HCL OneTest Server where the tests are located. URL should be of the 
 
 **Required** Project name of the test.
 
-### `repository`
-
-**Required** Repository Link corresponding to the test.
-
 ### `filepath`
 
-**Required** Path of the test in HCL OneTest Server. It must include the file extension.
+**Required** AssetId of the test file in HCL OneTest Server.
 
 ### `environment`
 
