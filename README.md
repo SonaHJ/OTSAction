@@ -68,7 +68,7 @@ URL of the HCL OneTest Server where the tests are located. URL should be of the 
 
 **Required** Project name of the test.
 
-### `filepath`
+### `assetId`
 
 **Required** AssetId of the test file in HCL OneTest Server.
 
