@@ -8420,7 +8420,6 @@ const asset = {
     startDate: '',
     projectId: '',
     teamspaceId: '',
-    repoId: '',
     assetId: '',
     externalType: '',
     assetName: '',
@@ -8471,13 +8470,6 @@ const asset = {
     },
     get getTeamSpaceId() {
         return this.teamspaceId;
-    },
-
-    set setRepoId(repoId) {
-        this.repoId = repoId;
-    },
-    get getRepoId() {
-        return this.repoId;
     },
 
     set setAssetId(assetId) {
@@ -8639,8 +8631,6 @@ const main = async () => {
         await teamspaceIdGenByName(serverStore, asset);
 
         await projectIdGenByName(serverStore, asset);
-
-        await repoIdGenByName(serverStore, asset);
 
         await branchValidation(serverStore, asset);
 
