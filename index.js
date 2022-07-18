@@ -268,7 +268,7 @@ const main = async () => {
             value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
             if (value.length != 2) {
                 throw new Error(
-                    "Please enter input in keyvalue format seperated by ':'"
+                    "Please enter input in keyvalue format seperated by '|'"
                 );
             } else if (isEmptyOrSpaces(value[0])) {
                 throw new Error(
