@@ -6,7 +6,7 @@ This action enables you to integrate with HCL OneTest™ Server.
 
 After you complete the integration, you can run tests assets that are available in a project of HCL OneTest™ Server from a Jenkins server.
 
-## Pre requesits
+## Pre requisites
 
 1. Create a github repository
 2. Create a folder named ".github" in the root of the repository
@@ -59,31 +59,31 @@ URL of the HCL OneTest Server where the tests are located. URL should be of the 
 
 ### `teamspace`
 
-**Required** User owned projects from the corresponding Team Space get populated here.
+**Required** Team Space name of the project.
 
 ### `project`
 
-**Required** User owned projects from the corresponding Team Space get populated here.
+**Required** Project name of the test.
 
 ### `branch`
 
-**Required** TThis field displays the branches available in the corresponding project of the HCL OneTest Server.
+**Required** Project name of the test.
 
 ### `repository`
 
-**Required** 
+**Required** Repository Link corresponding to the test.
 
 ### `filepath`
 
-**Required** The tests of the selected asset type from the HCL OneTest Server get populated here.
+**Required** Path of the test in HCL OneTest Server. It must include the file extension.
 
 ### `environment`
 
-**Required** When you select APISUITE, APITEST or APISTUB as the Asset Type, the Test Environment field lists the available test environments for the specific test asset.
+Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.
 
 ### `datasets`
 
-Semicolon (;) delimited list of source:replacement for the job to run. For example. (dataset1:dataset2;dataset3:dataset4)
+Optional. Semicolon (;) delimited list of source:replacement datasets for the job to run. For example, dataset1:dataset2;dataset3:dataset4
 
 ### `multipleValues`
 
@@ -100,7 +100,7 @@ Ex: Key1=Value1|Key2=Value2
 
 ### `variables`
 
-list of variables for the job to run. (ex. name=value;name1=value1)
+Optional. Variables corresponding to the test. The format is key1=value1;key2=value2
 
 ### `tags`
-Comma (,) delimited list of labels for the job to run.
+Optional. Variables corresponding to the test. The format is key1=value1;key2=value2
