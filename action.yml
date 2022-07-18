@@ -1,5 +1,5 @@
-name: '_prop_action_server_name_ Action'
-description: 'Execute _prop_action_server_name_ Test from GitHub Action'
+name: 'OTS Action'
+description: 'Execute OTS Test from GitHub Action'
 inputs:
   serverUrl:
     description: '_prop_action_server_name_ URL'
