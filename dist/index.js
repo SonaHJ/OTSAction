@@ -8597,9 +8597,7 @@ const main = async () => {
         asset.setDatasets = datasets;
         const multipleValues = core.getInput('multipleValues', { required: false });
         
-	console.log("Multiple valie " +mult_value);
         if(!isEmptyOrSpaces(multipleValues)) {
-			console.log("Nullcheck valie " +isEmptyOrSpaces(multipleValues));
 			var mult_value = multipleValues.split('|');
             for (var i = 0; i < mult_value.length; i++) {
                 var value = new Array(); 

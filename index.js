@@ -234,9 +234,9 @@ const main = async () => {
         const datasets = core.getInput('datasets', { required: false });
         asset.setDatasets = datasets;
         const multipleValues = core.getInput('multipleValues', { required: false });
-	    
+        
         if(!isEmptyOrSpaces(multipleValues)) {
-		var mult_value = multipleValues.split('|');
+			var mult_value = multipleValues.split('|');
             for (var i = 0; i < mult_value.length; i++) {
                 var value = new Array(); 
                 value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
