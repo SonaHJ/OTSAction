@@ -8411,9 +8411,7 @@ const serverStore = {
 const asset = {
     teamspace: '',
     project: '',
-    repository: '',
     branch: '',
-    filepath: '',
     environment: '',
     variables: '',
     datasets: '',
@@ -8447,25 +8445,11 @@ const asset = {
         return this.project;
     },
 
-    set setRepository(repository) {
-        this.repository = repository;
-    },
-    get getRepository() {
-        return this.repository;
-    },
-
     set setBranch(branch) {
         this.branch = branch;
     },
     get getBranch() {
         return this.branch;
-    },
-
-    set setFilepath(filepath) {
-        this.filepath = filepath;
-    },
-    get getFilePath() {
-        return this.filepath;
     },
 
     set setEnvironment(environment) {
@@ -8613,22 +8597,22 @@ const main = async () => {
         asset.setProject = project;
         const branch = core.getInput('branch', { required: true });
         asset.setBranch = branch;
-        const repository = core.getInput('repository', { required: true });
-        asset.setRepository = repository;
-        const filepath = core.getInput('filepath', { required: true });
-        asset.setFilepath = filepath;
+		const assetId = core.getInput('assetId', { required: true });
+        asset.setAssetId = assetId;
         const environment = core.getInput('environment', { required: false });
         asset.setEnvironment = environment;
         const datasets = core.getInput('datasets', { required: false });
         asset.setDatasets = datasets;
         const multipleValues = core.getInput('multipleValues', { required: false });
-        var mult_value = multipleValues.split(';');
+        var mult_value = multipleValues.split('|');
 
         for (var i = 0; i < mult_value.length; i++) {
-            var value = mult_value[i].split(':');
+            var value = new Array(); 
+            value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
+            value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
             if (value.length != 2) {
                 throw new Error(
-                    "Please enter input in keyvalue format seperated by ':'"
+                    "Please enter input in keyvalue format seperated by '|'"
                 );
             } else if (isEmptyOrSpaces(value[0])) {
                 throw new Error(
@@ -9032,98 +9016,6 @@ async function startJobExecution(serverStore, asset) {
         });
 }
 
-async function AssetIdGenByName(serverStore, asset) {
-    var assetName = path.parse(asset.getFilePath).name;
-    var encodedAssetName = urlencode(asset.getAssetName);
-    var encodedBranchName = urlencode(asset.getBranch);
-    var testsListURL =
-        serverStore.getServerUrl +
-        "rest/projects/" +
-        asset.getProjectId +
-        "/assets/?assetTypes=EXECUTABLE&name=" +
-        encodedAssetName +
-        "&revision=" +
-        encodedBranchName +
-        "&deployable=true";
-
-    await accessTokenGen(serverStore);
-
-    var headers = {
-        "Accept-Language": "en",
-        Authorization: "Bearer " + serverStore.getAccessToken,
-    };
-    return axios
-        .get(testsListURL, { headers: headers })
-        .then((response) => {
-            if (response.status != 200) {
-                throw new Error(
-                    "Error during retrieval of testassets. " +
-                    testsListURL +
-                    " returned " +
-                    response.status +
-                    " response code. Response: " +
-                    response.data
-                );
-            }
-            var parsedJSON = response.data;
-            var total = parsedJSON.totalElements;
-            var retrievedPath;
-            var retrievedRepoId;
-            var gotId = false;
-            if (total > 0) {
-                for (var i = 0; i < total; i++) {
-                    retrievedPath = parsedJSON.content[i].path;
-                    retrievedRepoId = parsedJSON.content[i].repository_id;
-                    if (
-                        retrievedPath == asset.getFilePath &&
-                        retrievedRepoId == asset.getRepoId
-                    ) {
-                        asset.setAssetId = parsedJSON.content[i].id;
-                        asset.setExternalType = parsedJSON.content[i].external_type;
-                        asset.setDesktopProjectId = parsedJSON.content[i].desktop_project_id;
-                        gotId = true;
-                        return true;
-                    }
-                }
-                if (!gotId) {
-                    throw new Error(
-                        "The file path " +
-                        asset.getFilePath +
-                        " was not found in the branch " +
-                        asset.getBranch +
-                        " corresponding to the repository " +
-                        asset.getRepository +
-                        " in the project " +
-                        asset.getProject +
-                        ". Please check the File path field in the task."
-                    );
-                }
-            } else {
-                throw new Error(
-                    "The file path " +
-                    asset.getFilePath +
-                    " was not found in the branch " +
-                    asset.getBranch +
-                    " corresponding to the repository " +
-                    asset.getRepository +
-                    " in the project " +
-                    asset.getProject +
-                    ". Please check the File path field in the task."
-                );
-            }
-        })
-        .catch((error) => {
-            throw new Error(
-                "Error when accessing testassets API - " +
-                testsListURL +
-                ". Error: " +
-                error
-            );
-        });
-}
-
-
-
 async function branchValidation(serverStore, asset) {
     let branchListURL =
         serverStore.getServerUrl +
@@ -9186,77 +9078,6 @@ async function branchValidation(serverStore, asset) {
             throw new Error(
                 "Error when accessing branch list API - " +
                 branchListURL +
-                ". Error: " +
-                error
-            );
-        });
-}
-
-
-
-
-async function repoIdGenByName(serverStore, asset) {
-    let reposListURL =
-        serverStore.getServerUrl +
-        "rest/projects/" +
-        asset.getProjectId +
-        "/repositories/";
-
-    await accessTokenGen(serverStore);
-
-    var headers = {
-        "Accept-Language": "en",
-        Authorization: "Bearer " + serverStore.getAccessToken,
-    };
-    return axios
-        .get(reposListURL, { headers: headers })
-        .then((response) => {
-            if (response.status != 200) {
-                throw new Error(
-                    "Error during retrieval of repositories. " +
-                    reposListURL +
-                    " returned " +
-                    response.status +
-                    " response code. Response: " +
-                    response.data
-                );
-            }
-            var parsedJSON = response.data;
-            var total = parsedJSON.totalElements;
-            let retrievedRepoName;
-            let gotId = false;
-            if (total > 0) {
-                for (var i = 0; i < total; i++) {
-                    retrievedRepoName = parsedJSON.content[i].uri;
-                    if (asset.getRepository == retrievedRepoName) {
-                        asset.setRepoId = parsedJSON.content[i].id;
-                        gotId = true;
-                        return true;
-                    }
-                }
-                if (!gotId) {
-                    throw new Error(
-                        "The repository " +
-                        asset.getRepository +
-                        " was not found in the project " +
-                        asset.getProject +
-                        " Please check the Repository field in the task."
-                    );
-                }
-            } else {
-                throw new Error(
-                    "The repository " +
-                    asset.getRepository +
-                    " was not found in the project " +
-                    asset.getProject +
-                    " Please check the Repository field in the task."
-                );
-            }
-        })
-        .catch((error) => {
-            throw new Error(
-                "Error when accessing repository list API - " +
-                reposListURL +
                 ". Error: " +
                 error
             );
