@@ -8605,30 +8605,32 @@ const main = async () => {
         asset.setDatasets = datasets;
         const multipleValues = core.getInput('multipleValues', { required: false });
         var mult_value = multipleValues.split('|');
-
-        for (var i = 0; i < mult_value.length; i++) {
-            var value = new Array(); 
-            value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
-            value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
-            if (value.length != 2) {
-                throw new Error(
-                    "Please enter input in keyvalue format seperated by '|'"
-                );
-            } else if (isEmptyOrSpaces(value[0])) {
-                throw new Error(
-                    "Input key is not given"
-                );
-            } else if (isEmptyOrSpaces(value[1])) {
-                throw new Error(
-                    "Input key value is not given"
-                );
-            }
-            if(value[0] == 'variables') {
-                asset.setVariables = value[1];
-            } else if(value[0] == 'tags') {
-                asset.setTags = value[1];
-            } else if(value[0] == 'secretsCollection') {
-                asset.setSecretsCollection = value[1];
+		
+        if(!isEmptyOrSpaces(mult_value)) {
+            for (var i = 0; i < mult_value.length; i++) {
+                var value = new Array(); 
+                value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
+                value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
+                if (value.length != 2) {
+                    throw new Error(
+                        "Please enter input in keyvalue format seperated by '|'"
+                    );
+                } else if (isEmptyOrSpaces(value[0])) {
+                    throw new Error(
+                        "Input key is not given"
+                    );
+                } else if (isEmptyOrSpaces(value[1])) {
+                    throw new Error(
+                        "Input key value is not given"
+                    );
+                }
+                if(value[0] == 'variables') {
+                    asset.setVariables = value[1];
+                } else if(value[0] == 'tags') {
+                    asset.setTags = value[1];
+                } else if(value[0] == 'secretsCollection') {
+                    asset.setSecretsCollection = value[1];
+                }
             }
         }
 
