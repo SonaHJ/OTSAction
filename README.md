@@ -4,7 +4,7 @@ This action enables you to integrate with HCL OneTest™ Server.
 
 ## How this works
 
-After you complete the integration, you can run tests assets that are available in a project of HCL OneTest™ Server from a Jenkins server.
+After you complete the integration, you can run tests assets that are available in a project of HCL OneTest™ Server from a Github action.
 
 ## Pre requisites
 
