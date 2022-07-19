@@ -8595,6 +8595,14 @@ const main = async () => {
         asset.setEnvironment = environment;
         const datasets = core.getInput('datasets', { required: false });
         asset.setDatasets = datasets;
+		
+		const variables = core.getInput('variables', { required: false });
+        asset.setVariables = variables;
+		const tags = core.getInput('tags', { required: false });
+        asset.setTags = tags;
+		const secretsCollection = core.getInput('secretsCollection', { required: false });
+        asset.setSecretsCollection = secretsCollection;
+		
         const multipleValues = core.getInput('multipleValues', { required: false });
         
         if(!isEmptyOrSpaces(multipleValues)) {
