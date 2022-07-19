@@ -18,7 +18,7 @@ jobs:
             branch: master
             assetId: RITTestINT/Logical/calculator.wsc/Add.opr/AddTest.tsq
             environment: civcez376
-            datasets: 
-            variables: test=testval
-            tags:test label
-            secretsCollection:
+            datasets: test:test
+            variables: test
+            tags: test
+            secretsCollection: test
