@@ -1,4 +1,4 @@
-# OTS Action
+# HCL OneTest Server
 
 This action enables you to integrate with HCL OneTest™ Server.
 
@@ -15,7 +15,7 @@ After you complete the integration, you can run tests assets that are available 
 ## Example usage
 
 ```yaml
-name: OTS Action
+name: HCL OneTest Server
 
 on: workflow_dispatch
 
@@ -23,7 +23,7 @@ jobs:
 
     RPT-Action:
         runs-on: self-hosted
-        name: Execute OTS Test
+        name: HCL OneTest Server
         steps:
          - name: RPT Action
            uses: SonaHJ/OTSAction@OTS_Release
