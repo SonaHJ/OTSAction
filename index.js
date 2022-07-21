@@ -326,10 +326,10 @@ async function validateAssetId(serverStore, asset) {
     serverStore.getServer +
     "rest/projects/" +
     asset.getProjectId +
-    "/assets/?assetId=" +
+    "/assets/" +
     assetId +
-    "&revision=" +
-    encodedBranchName;
+    "/" +
+    encodedBranchName + "/";
 
   await accessTokenGen(serverStore);
 
