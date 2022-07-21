@@ -1,4 +1,4 @@
-name: OTS Action
+name: HCL OneTest Server
 
 on:
     workflow_dispatch:
@@ -35,7 +35,7 @@ jobs:
 
     OTS-Action:
         runs-on: self-hosted
-        name: Execute OTS Test
+        name: HCL OneTest Server
         steps:
          - name: Execute Test
            uses: SonaHJ/OTSAction@main
