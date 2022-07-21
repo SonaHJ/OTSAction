@@ -323,9 +323,9 @@ async function validateAssetId(serverStore, asset) {
   var assetId = urlencode(asset.getAssetId);
   var encodedBranchName = urlencode(asset.getBranch);
   var testsListURL =
-    serverStore.getServer() +
+    serverStore.getServer +
     "rest/projects/" +
-    asset.getProjectId() +
+    asset.getProjectId +
     "/assets/?assetId=" +
     assetId +
     "&revision=" +
@@ -361,7 +361,7 @@ async function validateAssetId(serverStore, asset) {
           retrievedRepoId = parsedJSON.content[i].repository_id;
           if (
             retrievedAssetId == asset.getAssetId &&
-            retrievedRepoId == asset.getRepoId()
+            retrievedRepoId == asset.getRepoId
           ) {
             asset.setAssetId(parsedJSON.content[i].id);
             asset.setExternalType(parsedJSON.content[i].external_type);
