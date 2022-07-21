@@ -323,7 +323,7 @@ async function validateAssetId(serverStore, asset) {
   var assetId = urlencode(asset.getAssetId);
   var encodedBranchName = urlencode(asset.getBranch);
   var testsListURL =
-    serverStore.getServer +
+    serverStore.getServerUrl +
     "rest/projects/" +
     asset.getProjectId +
     "/assets/" +
