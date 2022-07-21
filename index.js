@@ -321,7 +321,7 @@ function isEmptyOrSpaces(input) {
 
 async function validateAssetId(serverStore, asset) {
   var assetId = urlencode(asset.getAssetId);
-  var encodedBranchName = urlencode(asset.getBranch());
+  var encodedBranchName = urlencode(asset.getBranch);
   var testsListURL =
     serverStore.getServer() +
     "rest/projects/" +
@@ -373,26 +373,26 @@ async function validateAssetId(serverStore, asset) {
         if (!gotId) {
           throw new Error(
             "The assetId " +
-            asset.getAssetId() +
+            asset.getAssetId +
             " was not found in the branch " +
-            asset.getBranch() +
+            asset.getBranch +
             " corresponding to the repository " +
-            asset.getRepo() +
+            asset.getRepo +
             " in the project " +
-            asset.getProject() +
+            asset.getProject +
             ". Please check the File path field in the task."
           );
         }
       } else {
         throw new Error(
           "The assetId " +
-          asset.getAssetId() +
+          asset.getAssetId +
           " was not found in the branch " +
-          asset.getBranch() +
+          asset.getBranch +
           " corresponding to the repository " +
-          asset.getRepo() +
+          asset.getRepo +
           " in the project " +
-          asset.getProject() +
+          asset.getProject +
           ". Please check the File path field in the task."
         );
       }
