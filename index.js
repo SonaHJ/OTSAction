@@ -353,15 +353,13 @@ async function validateAssetId(serverStore, asset) {
       var parsedJSON = response.data;
       var total = parsedJSON.totalElements;
       var retrievedAssetId;
-      var retrievedRepoId;
       var gotId = false;
       if (total > 0) {
         for (var i = 0; i < total; i++) {
           retrievedAssetId = parsedJSON.content[i].id;
           retrievedRepoId = parsedJSON.content[i].repository_id;
           if (
-            retrievedAssetId == asset.getAssetId &&
-            retrievedRepoId == asset.getRepoId
+            retrievedAssetId == asset.getAssetId
           ) {
             asset.setAssetId(parsedJSON.content[i].id);
             asset.setExternalType(parsedJSON.content[i].external_type);
@@ -376,11 +374,9 @@ async function validateAssetId(serverStore, asset) {
             asset.getAssetId +
             " was not found in the branch " +
             asset.getBranch +
-            " corresponding to the repository " +
-            asset.getRepo +
-            " in the project " +
+            " corresponding to the project "
             asset.getProject +
-            ". Please check the File path field in the task."
+            ". Please check the assetId field in the task."
           );
         }
       } else {
@@ -389,11 +385,9 @@ async function validateAssetId(serverStore, asset) {
           asset.getAssetId +
           " was not found in the branch " +
           asset.getBranch +
-          " corresponding to the repository " +
-          asset.getRepo +
           " in the project " +
           asset.getProject +
-          ". Please check the File path field in the task."
+          ". Please check the assetId field in the task."
         );
       }
     })
