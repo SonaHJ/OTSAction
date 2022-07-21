@@ -58,6 +58,7 @@ const asset = {
     startDate: '',
     projectId: '',
     teamspaceId: '',
+    repoId: '',
     assetId: '',
     externalType: '',
     assetName: '',
@@ -108,6 +109,13 @@ const asset = {
     },
     get getTeamSpaceId() {
         return this.teamspaceId;
+    },
+
+    set setRepoId(repoId) {
+        this.repoId = repoId;
+    },
+    get getRepoId() {
+        return this.repoId;
     },
 
     set setAssetId(assetId) {
@@ -233,42 +241,32 @@ const main = async () => {
         asset.setEnvironment = environment;
         const datasets = core.getInput('datasets', { required: false });
         asset.setDatasets = datasets;
-		
-		const variables = core.getInput('variables', { required: false });
-        asset.setVariables = variables;
-		const tags = core.getInput('tags', { required: false });
-        asset.setTags = tags;
-		const secretsCollection = core.getInput('secretsCollection', { required: false });
-        asset.setSecretsCollection = secretsCollection;
-		
         const multipleValues = core.getInput('multipleValues', { required: false });
-        
-        if(!isEmptyOrSpaces(multipleValues)) {
-			var mult_value = multipleValues.split('|');
-            for (var i = 0; i < mult_value.length; i++) {
-                var value = new Array(); 
-                value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
-                value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
-                if (value.length != 2) {
-                    throw new Error(
-                        "Please enter input in keyvalue format seperated by '|'"
-                    );
-                } else if (isEmptyOrSpaces(value[0])) {
-                    throw new Error(
-                        "Input key is not given"
-                    );
-                } else if (isEmptyOrSpaces(value[1])) {
-                    throw new Error(
-                        "Input key value is not given"
-                    );
-                }
-                if(value[0] == 'variables') {
-                    asset.setVariables = value[1];
-                } else if(value[0] == 'tags') {
-                    asset.setTags = value[1];
-                } else if(value[0] == 'secretsCollection') {
-                    asset.setSecretsCollection = value[1];
-                }
+        var mult_value = multipleValues.split('|');
+
+        for (var i = 0; i < mult_value.length; i++) {
+            var value = new Array(); 
+            value[0] = mult_value[i].toString().substring(0, mult_value[i].indexOf('='));
+            value[1] = mult_value[i].toString().substring(mult_value[i].indexOf('=')+1);
+            if (value.length != 2) {
+                throw new Error(
+                    "Please enter input in keyvalue format seperated by '|'"
+                );
+            } else if (isEmptyOrSpaces(value[0])) {
+                throw new Error(
+                    "Input key is not given"
+                );
+            } else if (isEmptyOrSpaces(value[1])) {
+                throw new Error(
+                    "Input key value is not given"
+                );
+            }
+            if(value[0] == 'variables') {
+                asset.setVariables = value[1];
+            } else if(value[0] == 'tags') {
+                asset.setTags = value[1];
+            } else if(value[0] == 'secretsCollection') {
+                asset.setSecretsCollection = value[1];
             }
         }
 
@@ -278,9 +276,11 @@ const main = async () => {
 
         await projectIdGenByName(serverStore, asset);
 
+        await repoIdGenByName(serverStore, asset);
+
         await branchValidation(serverStore, asset);
-        
-        await validateAssetId(serverStore, asset);
+
+        await AssetIdGenByName(serverStore, asset);
 
         if (
             asset.getExternalType == "APISUITE" ||
@@ -315,101 +315,9 @@ const main = async () => {
     }
 }
 
-function isEmptyOrSpaces(input) {
-     return !input || !input.trim();
+function isEmptyOrSpaces(dataset) {
+    return dataset === null || dataset.match(/^ *$/) !== null;
 }
-
-async function validateAssetId(serverStore, asset) {
-  var assetId = urlencode(asset.getAssetId);
-  var encodedBranchName = urlencode(asset.getBranch);
-  var testsListURL =
-    serverStore.getServerUrl +
-    "rest/projects/" +
-    asset.getProjectId +
-    "/assets/" +
-    assetId +
-    "/" +
-    encodedBranchName + "/";
-
-  await accessTokenGen(serverStore);
-
-  var headers = {
-    "Accept-Language": "en",
-    Authorization: "Bearer " + serverStore.getAccessToken,
-  };
-  return axios
-    .get(testsListURL, { headers: headers })
-    .then((response) => {
-      if (response.status != 200) {
-        throw new Error(
-          "Error during retrieval of testassets. " +
-          testsListURL +
-          " returned " +
-          response.status +
-          " response code. Response: " +
-          response.data
-        );
-      }
-	  console.log("response"+ response);
-	   console.log("response.data"+ response.data);
-	   console.log("response.data.totalElements"+ response.data.totalElements);
-      var parsedJSON = response.data;
-      var total = parsedJSON.totalElements;
-      var retrievedAssetId;
-	  console.log("response"+ response);
-	   console.log("response.data"+ parsedJSON);
-	   console.log("response.data.totalElements"+ total);
-	   console.log("response.data.totalElements"+ parsedJSON.length);
-      var gotId = false;
-      if (total > 0) {
-        for (var i = 0; i < total; i++) {
-          retrievedAssetId = parsedJSON.content[i].id;
-          retrievedRepoId = parsedJSON.content[i].repository_id;
-		console.log(retrievedAssetId + "= " + asset.getAssetId);
-		console.log(retrievedAssetId == asset.getAssetId);
-          if (
-            retrievedAssetId == asset.getAssetId
-          ) {
-            asset.setAssetId(parsedJSON.content[i].id);
-            asset.setExternalType(parsedJSON.content[i].external_type);
-            asset.setDesktopProjectId(parsedJSON.content[i].desktop_project_id);
-            gotId = true;
-            return true;
-          }
-        }
-        if (!gotId) {
-          throw new Error(
-            "The assetId " +
-            asset.getAssetId +
-            " was not found in the branch " +
-            asset.getBranch +
-            " corresponding to the project " +
-            asset.getProject +
-            ". Please check the assetId field in the task."
-          );
-        }
-      } else {
-        throw new Error(
-          "The assetId " +
-          asset.getAssetId +
-          " was not found in the branch " +
-          asset.getBranch +
-          " in the project " +
-          asset.getProject +
-          ". Please check the assetId field in the task."
-        );
-      }
-    })
-    .catch((error) => {
-      throw new Error(
-        "Error when accessing testassets API - " +
-        testsListURL +
-        ". Error: " +
-        error
-      );
-    });
-}
-
 async function validateEnvironment(serverStore, asset) {
     if (asset.getEnvironment == "" || asset.getEnvironment == null || asset.getEnvironment == undefined) {
         throw new Error(
