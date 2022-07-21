@@ -335,7 +335,7 @@ async function validateAssetId(serverStore, asset) {
 
   var headers = {
     "Accept-Language": "en",
-    Authorization: "Bearer " + serverStore.getAccessToken(),
+    Authorization: "Bearer " + serverStore.getAccessToken,
   };
   return axios
     .get(testsListURL, { headers: headers })
