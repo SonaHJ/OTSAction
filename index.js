@@ -359,6 +359,7 @@ async function validateAssetId(serverStore, asset) {
 	  console.log("response"+ response);
 	   console.log("response.data"+ parsedJSON);
 	   console.log("response.data.totalElements"+ total);
+	   console.log("response.data.totalElements"+ parsedJSON.length);
       var gotId = false;
       if (total > 0) {
         for (var i = 0; i < total; i++) {
