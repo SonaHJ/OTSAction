@@ -8641,6 +8641,8 @@ const main = async () => {
         await projectIdGenByName(serverStore, asset);
 
         await branchValidation(serverStore, asset);
+        
+        await validateAssetId(serverStore, asset);
 
         if (
             asset.getExternalType == "APISUITE" ||
@@ -8678,6 +8680,95 @@ const main = async () => {
 function isEmptyOrSpaces(input) {
      return !input || !input.trim();
 }
+
+async function validateAssetId(serverStore, asset) {
+  var assetId = urlencode(asset.getAssetId);
+  var encodedBranchName = urlencode(asset.getBranch());
+  var testsListURL =
+    serverStore.getServer() +
+    "rest/projects/" +
+    asset.getProjectId() +
+    "/assets/?assetId=" +
+    assetId +
+    "&revision=" +
+    encodedBranchName;
+
+  await accessTokenGen(serverStore);
+
+  var headers = {
+    "Accept-Language": "en",
+    Authorization: "Bearer " + serverStore.getAccessToken(),
+  };
+  return axios
+    .get(testsListURL, { headers: headers })
+    .then((response) => {
+      if (response.status != 200) {
+        throw new Error(
+          "Error during retrieval of testassets. " +
+          testsListURL +
+          " returned " +
+          response.status +
+          " response code. Response: " +
+          response.data
+        );
+      }
+      var parsedJSON = response.data;
+      var total = parsedJSON.totalElements;
+      var retrievedAssetId;
+      var retrievedRepoId;
+      var gotId = false;
+      if (total > 0) {
+        for (var i = 0; i < total; i++) {
+          retrievedAssetId = parsedJSON.content[i].id;
+          retrievedRepoId = parsedJSON.content[i].repository_id;
+          if (
+            retrievedAssetId == asset.getAssetId &&
+            retrievedRepoId == asset.getRepoId()
+          ) {
+            asset.setAssetId(parsedJSON.content[i].id);
+            asset.setExternalType(parsedJSON.content[i].external_type);
+            asset.setDesktopProjectId(parsedJSON.content[i].desktop_project_id);
+            gotId = true;
+            return true;
+          }
+        }
+        if (!gotId) {
+          throw new Error(
+            "The assetId " +
+            asset.getAssetId() +
+            " was not found in the branch " +
+            asset.getBranch() +
+            " corresponding to the repository " +
+            asset.getRepo() +
+            " in the project " +
+            asset.getProject() +
+            ". Please check the File path field in the task."
+          );
+        }
+      } else {
+        throw new Error(
+          "The assetId " +
+          asset.getAssetId() +
+          " was not found in the branch " +
+          asset.getBranch() +
+          " corresponding to the repository " +
+          asset.getRepo() +
+          " in the project " +
+          asset.getProject() +
+          ". Please check the File path field in the task."
+        );
+      }
+    })
+    .catch((error) => {
+      throw new Error(
+        "Error when accessing testassets API - " +
+        testsListURL +
+        ". Error: " +
+        error
+      );
+    });
+}
+
 async function validateEnvironment(serverStore, asset) {
     if (asset.getEnvironment == "" || asset.getEnvironment == null || asset.getEnvironment == undefined) {
         throw new Error(
