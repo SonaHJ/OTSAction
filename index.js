@@ -374,7 +374,7 @@ async function validateAssetId(serverStore, asset) {
             asset.getAssetId +
             " was not found in the branch " +
             asset.getBranch +
-            " corresponding to the project "
+            " corresponding to the project " +
             asset.getProject +
             ". Please check the assetId field in the task."
           );
