@@ -18,9 +18,11 @@ on:
             branch:
                 description: 'Branch'
                 required: true
-            assetId:
-                description: 'AssetId'
+            repository:
+                description: 'Repository Link'
                 required: true
+            file_path:
+                description: 'File Path'
             environment:
                 description: 'API Test Environment'
                 required: false
@@ -45,7 +47,8 @@ jobs:
             teamspace: '${{ github.event.inputs.team_space }}'
             project: '${{ github.event.inputs.project }}'
             branch: '${{ github.event.inputs.branch }}'
-            assetId: '${{ github.event.inputs.assetId }}'
+            repository: '${{ github.event.inputs.repository }}'
+            filepath: '${{ github.event.inputs.file_path }}'
             environment: '${{ github.event.inputs.environment }}'
             datasets: '${{ github.event.inputs.datasets }}'
             multipleValues: '${{ github.event.inputs.multipleValues }}'
