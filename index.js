@@ -149,8 +149,8 @@ async function run() {
       isFailed = true;
     }
     if (asset.getExternalType() != "APISTUB") {
-      if(exportReport != null){
-        if(path.extname(exportReport).toLowerCase() === ".xml") {
+      if (exportReport != null) {
+        if (path.extname(exportReport).toLowerCase() === ".xml") {
           await getJunitReport(serverStore, asset, exportReport);
         } else {
           console.error("Invalid file type, file extension should be .xml")
@@ -165,8 +165,8 @@ async function run() {
         await createTestRun(azureServer, pat, testPlanId, testSuiteId, testPointId, testCaseName);
         await getResultId(azureServer, pat, testPlanId, testSuiteId, testPointId, testCaseName, runId);
         await updateTestResults(azureServer, pat, azureResultId, runId, isFailed == true || asset.getVerdictSet() == false);
-        console.log("")	
-        console.log("Updated test results to "+ testCaseName +" under " +testPlanName);
+        console.log("")
+        console.log("Updated test results to " + testCaseName + " under " + testPlanName);
       }
     }
     console.log("");
@@ -194,7 +194,7 @@ async function run() {
         await getResultId(azureServer, pat, testPlanId, testSuiteId, testPointId, testCaseName, runId);
         await updateTestResults(azureServer, pat, azureResultId, runId, true);
         console.log("")
-        console.log("Updated test results to "+ testCaseName +" under " +testPlanName);
+        console.log("Updated test results to " + testCaseName + " under " + testPlanName);
       }
     }
     console.error("");
@@ -823,15 +823,15 @@ async function startJobExecution(serverStore, asset, variables, datasets, tags, 
     var str_array = datasets.split(';');
     for (var i = 0; i < str_array.length; i++) {
       var datasetArray = str_array[i].split(':');
-      if(datasetArray.length != 2) {
+      if (datasetArray.length != 2) {
         throw new Error(
           "Please enter Dataset value in format -- SourceDataset:SwapDataset"
         );
-      } else if(isEmptyOrSpaces(datasetArray[0])){
+      } else if (isEmptyOrSpaces(datasetArray[0])) {
         throw new Error(
           "Source Dataset is not given for Swapdataset"
         );
-      } else if (isEmptyOrSpaces(datasetArray[1])){
+      } else if (isEmptyOrSpaces(datasetArray[1])) {
         throw new Error(
           "SwapDataset is not given for Source Dataset"
         );
@@ -898,7 +898,7 @@ async function startJobExecution(serverStore, asset, variables, datasets, tags, 
     });
 }
 
-function isEmptyOrSpaces(dataset){
+function isEmptyOrSpaces(dataset) {
   return dataset === null || dataset.match(/^ *$/) !== null;
 }
 
@@ -1506,7 +1506,7 @@ async function getReplaceDataSetId(serverStore, asset, srcDataSetId, datasetArra
         }
         if (!gotId) {
           throw new Error(
-            "SwapDataset ("+datasetArray[1]+") is not configured for Source DataSet ("+datasetArray[1]+")"
+            "SwapDataset (" + datasetArray[1] + ") is not configured for Source DataSet (" + datasetArray[1] + ")"
           );
         }
       } else {
@@ -1601,11 +1601,11 @@ async function getJunitReport(serverStore, asset, exportReport) {
       Authorization: "Bearer " + serverStore.getAccessToken(),
     }
   }).then((response) => {
-      fs.writeFile(exportReport, response.data, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-      })
+    fs.writeFile(exportReport, response.data, (err) => {
+      if (err) throw err;
+      console.log('The file has been saved!');
     })
+  })
     .catch((error) => {
       throw new Error(
         "Error when accessing results URL - " + resultsURL + ". Error: " + error
