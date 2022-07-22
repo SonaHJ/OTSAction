@@ -17,24 +17,60 @@ After you complete the integration, you can run tests assets that are available 
 ```yaml
 name: HCL OneTest Server
 
-on: workflow_dispatch
+on:
+    workflow_dispatch:
+        inputs:
+            server_url:
+                description: 'Server URL'
+                required: true
+            offline_token:
+                description: 'Offline Token'
+                required: true
+            team_space:
+                description: 'Team Space Name'
+                required: true
+            project:
+                description: 'Project'
+                required: true
+            branch:
+                description: 'Branch'
+                required: true
+            assetId:
+                description: 'AssetID'
+                required: true
+            environment:
+                description: 'API Test Environment'
+                required: false
+            datasets:
+                description: 'Datasets'
+                required: false
+            exportReport:
+                description: 'Export Junit Report'
+                required: false
+            multipleValues:
+                description: 'Multiple Values'
+                required: false
 
 jobs:
 
-    RPT-Action:
+    OTS-Action:
         runs-on: self-hosted
         name: HCL OneTest Server
         steps:
-         - name: RPT Action
-           uses: SonaHJ/OTSAction@OTS_Release
-          with:
-            serverUrl: https://master-hcl.tp-k8s.nonprod.hclpnp.com/
-            offlineToken: **********
-            teamspace: Initial Team Space
-            project: A_P1
-            branch: master
-            assetId: {assetIdOfTestFile}
-            environment:
+         - name: Execute Test
+           uses: SonaHJ/OTSAction@main
+           with:
+            serverUrl: '${{ github.event.inputs.server_url }}'
+            offlineToken: '${{ github.event.inputs.offline_token }}'
+            teamspace: '${{ github.event.inputs.team_space }}'
+            project: '${{ github.event.inputs.project }}'
+            branch: '${{ github.event.inputs.branch }}'
+            assetId: '${{ github.event.inputs.assetId }}'
+            environment: '${{ github.event.inputs.environment }}'
+            datasets: '${{ github.event.inputs.datasets }}'
+            exportReport: '${{ github.event.inputs.exportReport }}'
+            multipleValues: '${{ github.event.inputs.multipleValues }}'
+
 ```
 7. Replace the example input values with your details.
 8. Push it into the main branch
@@ -79,6 +115,10 @@ Optional. Test environment corresponding to the test. Mandatory to input the val
 ### `datasets`
 
 Optional. Semicolon (;) delimited list of source:replacement datasets for the job to run. For example, dataset1:dataset2;dataset3:dataset4
+
+### `exportReport`
+
+Optional. Use this option to export the Junit report generated for the test in XML format. Specify the complete path to the directory including the filename. For example, C:/TestFolder/TestFile.xml
 
 ### `multipleValues`
 
