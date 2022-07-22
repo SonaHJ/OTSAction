@@ -58,7 +58,7 @@ jobs:
         name: HCL OneTest Server
         steps:
          - name: Execute Test
-           uses: SonaHJ/OTSAction@main
+           uses: SonaHJ/OTSAction@HCLOneTestServer_03
            with:
             serverUrl: '${{ github.event.inputs.server_url }}'
             offlineToken: '${{ github.event.inputs.offline_token }}'
