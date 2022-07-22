@@ -2,10 +2,10 @@ name: 'HCL OneTest Server'
 description: 'Execute OTS Test from GitHub Action'
 inputs:
   serverUrl:
-    description: '_prop_action_server_name_ URL'
+    description: 'HCL OneTest Server URL'
     required: true
   offlineToken:
-    description: '_prop_action_server_name_ OfflineToken'
+    description: 'HCL OneTest Server OfflineToken'
     required: true
   teamspace:
     description: 'Team Space name of the project.'
@@ -22,17 +22,14 @@ inputs:
   environment:
     description: 'Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.'  
     required: false
-  variables:
-    description: 'Optional, Test variables corresponding to the test..format is key1=value1;key2=value2'
-    required: false
   datasets:
     description: 'Optional Comma (,) delimited values of datasets for the job to run, For example. (source:replacement;source:replacement)'
     required: false
-  tags:
-    description: 'Optional Comma (,) delimited list of tags for the job to run.'
+  exportReport:
+    description: 'Use this option to export the Junit report generated for the test in XML format'
     required: false
-  secretsCollection:
-    description: 'Secrets collection name for the job to run.'
+  multipleValues:
+    description: 'Remaining inputs need to be Key=Value pair. Refer Readme'
     required: false   
 runs:
   using: 'node16'
