@@ -27,6 +27,9 @@ on:
             datasets:
                 description: 'Datasets'
                 required: false
+            exportReport:
+                description: 'Export Junit Report'
+                required: false
             multipleValues:
                 description: 'Multiple Values'
                 required: false
@@ -48,4 +51,5 @@ jobs:
             assetId: '${{ github.event.inputs.assetId }}'
             environment: '${{ github.event.inputs.environment }}'
             datasets: '${{ github.event.inputs.datasets }}'
+            exportReport: '${{ github.event.inputs.exportReport }}'
             multipleValues: '${{ github.event.inputs.multipleValues }}'
