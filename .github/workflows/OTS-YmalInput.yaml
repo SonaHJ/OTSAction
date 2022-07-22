@@ -12,13 +12,9 @@ jobs:
            uses: SonaHJ/OTSAction@main
            with:
             serverUrl: https://master-hcl.tp-k8s.nonprod.hclpnp.com/
-            offlineToken: eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwOWY4MTc4My03YmVmLTRmYzktYjMxMC0xNDFjYzE4NmNhNjYifQ.eyJpYXQiOjE2NTQ2ODE4MjYsImp0aSI6ImIxYTIwZTY3LTYxYWUtNGIwZS05ODdjLTliNWMxMjUyNjMyYyIsImlzcyI6Imh0dHBzOi8vbWFzdGVyLWhjbC50cC1rOHMubm9ucHJvZC5oY2xwbnAuY29tL2F1dGgvcmVhbG1zL3Rlc3RzZXJ2ZXIiLCJhdWQiOiJodHRwczovL21hc3Rlci1oY2wudHAtazhzLm5vbnByb2QuaGNscG5wLmNvbS9hdXRoL3JlYWxtcy90ZXN0c2VydmVyIiwic3ViIjoiMjE0ZjkwM2YtYTI1MS00N2QxLWFjYjctNmQ1ZGY5Mzc1Zjc4IiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InRlc3RzZXJ2ZXIiLCJzZXNzaW9uX3N0YXRlIjoiMmE4ZTViMjQtMDc0ZC00MmMxLTljMjktYjQ1MTY1ZTcwNjMzIiwic2NvcGUiOiJ0ZXN0c2VydmVyIGVtYWlsIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUifQ.dqNWEC6JAZqLb93kp3LU2KnjwxRCLkgVcyVXQ5yjDXY
+            offlineToken: eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwYTk1OTJhMy1hNmQwLTRiMzMtYmVlMi0yODJhOThlNWZhYjAifQ.eyJpYXQiOjE2NTgzOTk3NzYsImp0aSI6ImRjMDhmMDdiLTNkNzEtNGJlZC1hZWM1LTBjZTY2M2M5MjdmZCIsImlzcyI6Imh0dHBzOi8vbWFzdGVyLWhjbC50cC1rOHMubm9ucHJvZC5oY2xwbnAuY29tL2F1dGgvcmVhbG1zL3Rlc3RzZXJ2ZXIiLCJhdWQiOiJodHRwczovL21hc3Rlci1oY2wudHAtazhzLm5vbnByb2QuaGNscG5wLmNvbS9hdXRoL3JlYWxtcy90ZXN0c2VydmVyIiwic3ViIjoiMDZiOWUwNTYtYmM5My00ZjBlLWJmNmEtMmY1MzQ3YjA0YzhiIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InRlc3RzZXJ2ZXIiLCJzZXNzaW9uX3N0YXRlIjoiNGNjYjgzOWUtMmYxZi00MzgzLWE5MmUtOWU0OGEwZmM1NTMwIiwic2NvcGUiOiJ0ZXN0c2VydmVyIGVtYWlsIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUiLCJzaWQiOiI0Y2NiODM5ZS0yZjFmLTQzODMtYTkyZS05ZTQ4YTBmYzU1MzAifQ.2f8zxSYc-Q-udkdzQxmHNKdAgm119Juc3X1JJeA5tGY
             teamspace: Initial Team Space
-            project: A_P12
+            project: A_P1
             branch: master
-            assetId: RITTestINT/Logical/calculator.wsc/Add.opr/AddTest.tsq
-            environment: civcez376
-            datasets: test:test
-            variables: test
-            tags: test
-            secretsCollection: test
+            assetId: 7a8b2c4b-d844-4954-8b2c-4bd8442954eb
+            environment: LP2-US-51628490
