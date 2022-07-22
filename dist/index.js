@@ -8682,22 +8682,23 @@ function isEmptyOrSpaces(input) {
 }
 
 async function validateAssetId(serverStore, asset) {
-  var assetId = urlencode(asset.getAssetId);
-  var encodedBranchName = urlencode(asset.getBranch());
+  var encodedAssetId = urlencode(asset.getAssetId);
+  var encodedBranchName = urlencode(asset.getBranch);
   var testsListURL =
-    serverStore.getServer() +
+    serverStore.getServerUrl +
     "rest/projects/" +
-    asset.getProjectId() +
-    "/assets/?assetId=" +
-    assetId +
+    asset.getProjectId +
+    "/assets/?assetTypes=EXECUTABLE&assetIds=" +
+    encodedAssetId +
     "&revision=" +
-    encodedBranchName;
+    encodedBranchName +
+    "&deployable=true";
 
   await accessTokenGen(serverStore);
 
   var headers = {
     "Accept-Language": "en",
-    Authorization: "Bearer " + serverStore.getAccessToken(),
+    Authorization: "Bearer " + serverStore.getAccessToken,
   };
   return axios
     .get(testsListURL, { headers: headers })
@@ -8715,47 +8716,39 @@ async function validateAssetId(serverStore, asset) {
       var parsedJSON = response.data;
       var total = parsedJSON.totalElements;
       var retrievedAssetId;
-      var retrievedRepoId;
       var gotId = false;
       if (total > 0) {
         for (var i = 0; i < total; i++) {
           retrievedAssetId = parsedJSON.content[i].id;
-          retrievedRepoId = parsedJSON.content[i].repository_id;
           if (
-            retrievedAssetId == asset.getAssetId &&
-            retrievedRepoId == asset.getRepoId()
+            retrievedAssetId == asset.getAssetId 
           ) {
-            asset.setAssetId(parsedJSON.content[i].id);
-            asset.setExternalType(parsedJSON.content[i].external_type);
-            asset.setDesktopProjectId(parsedJSON.content[i].desktop_project_id);
+            asset.setExternalType = parsedJSON.content[i].external_type;
+            asset.setDesktopProjectId = parsedJSON.content[i].desktop_project_id;
             gotId = true;
             return true;
           }
         }
         if (!gotId) {
           throw new Error(
-            "The assetId " +
-            asset.getAssetId() +
+            "The AssetId " +
+            asset.getAssetId +
             " was not found in the branch " +
-            asset.getBranch() +
-            " corresponding to the repository " +
-            asset.getRepo() +
+            asset.getBranch +
             " in the project " +
-            asset.getProject() +
-            ". Please check the File path field in the task."
+            asset.getProject +
+            ". Please check the AssetId field in the task."
           );
         }
       } else {
         throw new Error(
-          "The assetId " +
-          asset.getAssetId() +
+          "The AssetId " +
+          asset.getAssetId +
           " was not found in the branch " +
-          asset.getBranch() +
-          " corresponding to the repository " +
-          asset.getRepo() +
+          asset.getBranch +
           " in the project " +
-          asset.getProject() +
-          ". Please check the File path field in the task."
+          asset.getProject +
+          ". Please check the AssetId field in the task."
         );
       }
     })

@@ -17,7 +17,7 @@ inputs:
     description: 'Branch name corresponding to the test.'
     required: true
   assetId:
-    description: 'AssetId of the test in HCL OneTest Server. It must include the file extension.'
+    description: 'AssetId of the test in HCL OneTest Server.'
     required: true
   environment:
     description: 'Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.'  
@@ -36,4 +36,4 @@ inputs:
     required: false   
 runs:
   using: 'node16'
-  main: 'index.js' 
+  main: 'dist/index.js' 
