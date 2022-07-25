@@ -3,13 +3,13 @@ name: HCL OneTest Server
 on:
     workflow_dispatch:
         inputs:
-            server_url:
+            serverUrl:
                 description: 'Server URL'
                 required: true
-            offline_token:
+            offlineToken:
                 description: 'Offline Token'
                 required: true
-            team_space:
+            teamspace:
                 description: 'Team Space Name'
                 required: true
             project:
@@ -43,9 +43,9 @@ jobs:
          - name: Execute Test
            uses: SonaHJ/OTSAction@main
            with:
-            serverUrl: '${{ github.event.inputs.server_url }}'
-            offlineToken: '${{ github.event.inputs.offline_token }}'
-            teamspace: '${{ github.event.inputs.team_space }}'
+            serverUrl: '${{ github.event.inputs.serverUrl }}'
+            offlineToken: '${{ github.event.inputs.offlineToken }}'
+            teamspace: '${{ github.event.inputs.teamspace }}'
             project: '${{ github.event.inputs.project }}'
             branch: '${{ github.event.inputs.branch }}'
             assetId: '${{ github.event.inputs.assetId }}'
