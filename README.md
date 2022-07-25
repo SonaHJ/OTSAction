@@ -127,14 +127,13 @@ https://github.com/github/docs/issues/15710
 Specify the below inputs in the Key=Value format.
     Ex: variables=sampleVariable|tags=sampleTag
     
-Note that separator between the key-value pairs is '|' character.
+**Note that separator between the key-value pairs is '|' character.**
 
-
-## Supported Multiplevalue inputs
+## Supported multipleValues inputs
 
 ### `variables`
 
-Optional. Variables corresponding to the test. The format is key1=value1;key2=value2
+Optional. Variables corresponding to the test. The format is variables=sampleVariable
 
 ### `tags`
-Optional. Variables corresponding to the test. The format is key1=value1;key2=value2
+Optional. Variables corresponding to the test. The format is tags=sampleTag
