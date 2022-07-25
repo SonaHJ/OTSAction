@@ -1,94 +1,90 @@
 # HCL OneTest Server
 
-This action enables you to integrate with HCL OneTest™ Server.
+This enables you to run test assets that are available in a project of a HCL OneTest™ Server from a Github action.
 
-## How this works
-
-After you complete the integration, you can run tests assets that are available in a project of HCL OneTest™ Server from a Github action.
-
-## Pre requisites
+## Pre requisites to run this action
 
 1. Create a github repository
-2. Create a folder named ".github" in the root of the repository
-3. Create a folder named "workflows" inside the ".github" folder.
-5. Create a .yml file with any name , inside the "workflow" folder and you need to code as following example in that yml file
-## Example usage
+2. Create a folder named ".github/workflows" in the root of the repository
+3. Create a .yml file with any name inside the ".github/workflows" folder 
+4. Then you need to code thta yml file as mentioned in the following example.
 
-```yaml
-name: HCL OneTest Server
+    ## Example usage
 
-on:
-    workflow_dispatch:
-        inputs:
-            server_url:
-                description: 'Server URL'
-                required: true
-            offline_token:
-                description: 'Offline Token'
-                required: true
-            team_space:
-                description: 'Team Space Name'
-                required: true
-            project:
-                description: 'Project'
-                required: true
-            branch:
-                description: 'Branch'
-                required: true
-            assetId:
-                description: 'AssetID'
-                required: true
-            environment:
-                description: 'API Test Environment'
-                required: false
-            datasets:
-                description: 'Datasets'
-                required: false
-            exportReport:
-                description: 'Export Junit Report'
-                required: false
-            multipleValues:
-                description: 'Multiple Values'
-                required: false
+    ```yaml
+    name: HCL OneTest Server
 
-jobs:
+    on:
+        workflow_dispatch:
+            inputs:
+                server_url:
+                    description: 'Server URL'
+                    required: true
+                offline_token:
+                    description: 'Offline Token'
+                    required: true
+                team_space:
+                    description: 'Team Space Name'
+                    required: true
+                project:
+                    description: 'Project'
+                    required: true
+                branch:
+                    description: 'Branch'
+                    required: true
+                assetId:
+                    description: 'AssetID'
+                    required: true
+                environment:
+                    description: 'API Test Environment'
+                    required: false
+                datasets:
+                    description: 'Datasets'
+                    required: false
+                exportReport:
+                    description: 'Export Junit Report'
+                    required: false
+                multipleValues:
+                    description: 'Multiple Values'
+                    required: false
 
-    OTS-Action:
-        runs-on: self-hosted
-        name: HCL OneTest Server
-        steps:
-         - name: Execute Test
-           uses: SonaHJ/OTSAction@HCLOneTestServer_03
-           with:
-            serverUrl: '${{ github.event.inputs.server_url }}'
-            offlineToken: '${{ github.event.inputs.offline_token }}'
-            teamspace: '${{ github.event.inputs.team_space }}'
-            project: '${{ github.event.inputs.project }}'
-            branch: '${{ github.event.inputs.branch }}'
-            assetId: '${{ github.event.inputs.assetId }}'
-            environment: '${{ github.event.inputs.environment }}'
-            datasets: '${{ github.event.inputs.datasets }}'
-            exportReport: '${{ github.event.inputs.exportReport }}'
-            multipleValues: '${{ github.event.inputs.multipleValues }}'
+    jobs:
 
-```
-7. Replace the example input values with your details.
-8. Push it into the main branch
-9. Go to the Actions section in the repository and select the workflow.
-10. Click the Run workflow dropdown and the list of input boxes get displayed.
+        OTS-Action:
+            runs-on: self-hosted
+            name: HCL OneTest Server
+            steps:
+             - name: Execute Test
+               uses: SonaHJ/OTSAction@HCLOneTestServer_03
+               with:
+                serverUrl: '${{ github.event.inputs.server_url }}'
+                offlineToken: '${{ github.event.inputs.offline_token }}'
+                teamspace: '${{ github.event.inputs.team_space }}'
+                project: '${{ github.event.inputs.project }}'
+                branch: '${{ github.event.inputs.branch }}'
+                assetId: '${{ github.event.inputs.assetId }}'
+                environment: '${{ github.event.inputs.environment }}'
+                datasets: '${{ github.event.inputs.datasets }}'
+                exportReport: '${{ github.event.inputs.exportReport }}'
+                multipleValues: '${{ github.event.inputs.multipleValues }}'
 
-To configure agent:
-1. Go to settings (Repo).
-2. Select action -> runner.
-3. Click Create self-hosted runner, follow the download and configure instruction
+    ```
+5. Push it into the main branch
+6. To configure agent:
+    1. Go to settings (Repo).
+    2. Select action -> runner.
+    3. Click Create self-hosted runner, follow the download and configure instructions
+7. Go to the Actions section in the repository and select the workflow.
+8. Click the Run workflow dropdown and the list of input text boxes are displayed.
+9. After entering the input values click on run workflow button
 
-## Inputs
+## List of Inputs
 
 ### `serverUrl`
 
 URL of the HCL OneTest Server where the tests are located. URL should be of the format - https://hostname
 
-### `offlineToken `
+### `offlineToken`
 
 **Required** Input the offline user token for the corresponding HCL OneTest Server
 
@@ -122,7 +118,7 @@ Optional. Use this option to export the Junit report generated for the test in X
 
 ### `multipleValues`
 
-you may only define up to 10 inputs for a workflow_dispatch event. Remaining inputs need to be Key=Value pair.
+You may only define up to 10 inputs for a workflow_dispatch event. Remaining inputs need to be Key=Value pair.
 
 https://github.community/t/you-may-only-define-up-to-10-inputs-for-a-workflow-dispatch-event/160733
 
@@ -131,7 +127,7 @@ https://github.com/github/docs/issues/15710
 Specify the below inputs in the Key=Value format.
 Ex: Key1=Value1|Key2=Value2
 
-## Multiplevalue inputs
+## Supported Multiplevalue inputs
 
 ### `variables`
 
