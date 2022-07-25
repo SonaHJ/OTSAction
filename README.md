@@ -17,13 +17,13 @@ This enables you to run test assets that are available in a project of a HCL One
     on:
         workflow_dispatch:
             inputs:
-                server_url:
+                serverUrl:
                     description: 'Server URL'
                     required: true
-                offline_token:
+                offlineToken:
                     description: 'Offline Token'
                     required: true
-                team_space:
+                teamspace:
                     description: 'Team Space Name'
                     required: true
                 project:
@@ -57,9 +57,9 @@ This enables you to run test assets that are available in a project of a HCL One
              - name: Execute Test
                uses: SonaHJ/OTSAction@HCLOneTestServer_03
                with:
-                serverUrl: '${{ github.event.inputs.server_url }}'
-                offlineToken: '${{ github.event.inputs.offline_token }}'
-                teamspace: '${{ github.event.inputs.team_space }}'
+                serverUrl: '${{ github.event.inputs.serverUrl }}'
+                offlineToken: '${{ github.event.inputs.offlineToken }}'
+                teamspace: '${{ github.event.inputs.teamspace }}'
                 project: '${{ github.event.inputs.project }}'
                 branch: '${{ github.event.inputs.branch }}'
                 assetId: '${{ github.event.inputs.assetId }}'
@@ -106,15 +106,15 @@ URL of the HCL OneTest Server where the tests are located. URL should be of the 
 
 ### `environment`
 
-Optional. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.
+**Optional**. Test environment corresponding to the test. Mandatory to input the value if you want to run API test.
 
 ### `datasets`
 
-Optional. Semicolon (;) delimited list of source:replacement datasets for the job to run. For example, dataset1:dataset2;dataset3:dataset4
+**Optional**. Semicolon (;) delimited list of source:replacement datasets for the job to run. For example, dataset1:dataset2;dataset3:dataset4
 
 ### `exportReport`
 
-Optional. Use this option to export the Junit report generated for the test in XML format. Specify the complete path to the directory including the filename. For example, C:/TestFolder/TestFile.xml
+**Optional**. Use this option to export the Junit report generated for the test in XML format. Specify the complete path to the directory including the filename. For example, C:/TestFolder/TestFile.xml
 
 ### `multipleValues`
 
